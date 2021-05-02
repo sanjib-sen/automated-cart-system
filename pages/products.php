@@ -114,7 +114,7 @@ $run_query = mysqli_query($conn, $sql);
                         <tr>
                             <td>
                                 <?php if ($product['image']): ?>
-                                    <img src="uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="product-img" height="20" width="30">
+                                    <img src="../uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="product-img" height="20" width="30">
                                 <?php endif; ?>
                             </td>
                             <td><?php echo $product['title'] ?></td>

@@ -12,7 +12,7 @@ $description = mysqli_real_escape_string($conn, $_POST['description']);
 $price = mysqli_real_escape_string($conn, $_POST['price']);
 
 $filename = (uniqid($_FILES['image']['name'], true));
-move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/" . $filename);
+move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $filename);
 $sql = "INSERT INTO products (title,description, price, image) VALUES ('$title','$description','$price','$filename')";
 $run_query = mysqli_query($conn, $sql);
 
