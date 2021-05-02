@@ -1,3 +1,26 @@
+<?php
+
+$host = 'localhost';
+$dbUsrname = 'root';
+$dbPassword = '';
+$dbname = 'project';
+session_start();
+$_SESSION['customerId']= 1;
+
+$conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
+
+$sql = "SELECT * FROM customer where customer_id = '$_SESSION[customerId]'";
+$run_query = mysqli_query($conn, $sql);
+$result = $run_query ->fetch_assoc();
+$customer_name = $result['name'];
+$join_date = $result['join_date'];
+
+$year = (int) substr($join_date, 2, 2);
+
+$current_year = (int) substr(date('Y-m-d H:i:s'),2,2);
+
+$offer = ((($current_year-$year)*10)+1)/100;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,8 +106,11 @@
           <tbody>
           <tr>
             <td>Customer Name</td>
-            <td> Sanjib</td>
-<!--            <td><?php echo $name ?></td>-->
+            <td> <?php echo $customer_name ?> </td>
+          </tr>
+          <tr>
+              <td>Discount</td>
+              <td><?php echo $offer ?></td>
           </tr>
           <tr>
             <td>Total Bill</td>
