@@ -66,7 +66,17 @@
 <!-- Navbar -->
 
 
-
+<script>
+    function onChange() {
+        const password = document.querySelector('input[name=Password]');
+        const confirm = document.querySelector('input[name=ConfirmPass]');
+        if (confirm.value === password.value) {
+            confirm.setCustomValidity('');
+        } else {
+            confirm.setCustomValidity('Passwords do not match');
+        }
+    }
+</script>
 
 
 <div class="mask d-flex align-items-center h-100">
@@ -94,7 +104,8 @@
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" name="ConfirmPass" class="form-control"required/>
+                        <input type="password" name="ConfirmPass" class="form-control" onChange="onChange()"
+                               required/>
                         <label class="form-label" for="ConfirmPass">Confirm Password</label>
                     </div>
 

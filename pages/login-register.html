@@ -66,7 +66,17 @@
 <!-- Navbar -->
 
 
-
+<script>
+    function onChange() {
+        const password = document.querySelector('input[name=registerPassword]');
+        const confirm = document.querySelector('input[name=RepeatPassword]');
+        if (confirm.value === password.value) {
+            confirm.setCustomValidity('');
+        } else {
+            confirm.setCustomValidity('Passwords do not match');
+        }
+    }
+</script>
 
 
 <div class="mask d-flex align-items-center h-100">
@@ -165,13 +175,14 @@
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <input type="password" name="registerPassword" class="form-control" required/>
+                                <input type="password" name="registerPassword" class="form-control" required />
                                 <label class="form-label" for="registerPassword">Password</label>
                             </div>
 
                             <!-- Repeat Password input -->
                             <div class="form-outline mb-4">
-                                <input type="password" name="RepeatPassword" class="form-control" required/>
+                                <input type="password" name="RepeatPassword" class="form-control" onChange="onChange()"
+                                       required/>
                                 <label class="form-label" for="RepeatPassword">Repeat password</label>
                             </div>
 

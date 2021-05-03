@@ -166,13 +166,13 @@ if (isset($_POST['cuslogin'])) {
                         </tbody>
                     </table>
                 <div class="container-sm">
-                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.html">Go Shopping
+                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
                     </button>
                 </div>
                 <?php } else if (!$regsucces && !$login) {?>
                     <label class="mb-3 text-center"><?php echo $label ?> </label>
                     <div class="container-sm">
-                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="index.html">Go Back
+                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="login-register.html">Go Back
                         </button>
                     </div>
                 <?php } ?>
@@ -180,13 +180,13 @@ if (isset($_POST['cuslogin'])) {
                 <?php if ($loginsucces && $login) { ?>
                 <label class="mb-3 text-center"> Login Successful </label>
                 <div class="container-sm">
-                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.html">Go Shopping
+                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
                     </button>
                 </div>
                 <?php } else if($loginsucces && $login) {?>
                 <label class="mb-3 text-center"><?php echo $label ?> </label>
                 <div class="container-sm">
-                <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="index.html">Go
+                <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="login-register.html">Go
                     Back
                 </button>
                 <button type="button" class="btn btn-secondary btn-rounded"

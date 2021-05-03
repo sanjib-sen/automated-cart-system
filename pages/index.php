@@ -79,114 +79,45 @@
 
 
                 <!-- Start your project here-->
-
-                <!-- Pills navs -->
-
-                <h1 class="mb-3 text-center">Shopping Cart</h1>
-                <!-- Pills navs -->
-                <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a
-                                class="nav-link active"
-                                id="tab-login"
-                                data-mdb-toggle="pill"
-                                href="#pills-login"
-                                role="tab"
-                                aria-controls="pills-login"
-                                aria-selected="true"
-                                    > Login</a
->
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a
-                                class="nav-link"
-                                id="tab-register"
-                                data-mdb-toggle="pill"
-                                href="#pills-register"
-                                role="tab"
-                                aria-controls="pills-register"
-                                aria-selected="false"
-                                    >Register</a
->
-                    </li>
-                </ul>
-                <!-- Pills navs -->
-
-                <!-- Pills content -->
-                <div class="tab-content">
-                    <div
-                            class="tab-pane fade show active"
-                            id="pills-login"
-                            role="tabpanel"
-                            aria-labelledby="tab-login"
-                                >
-                        <form method="post" action="login-registration.php">
-
-                            <p class="text-center fw-bold "> Customer Login</p>
-
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                                <input type="Phone" name="loginNumber" class="form-control" required/>
-                                <label class="form-label" for="loginNumber">Phone Number</label>
-                            </div>
-
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" name="loginPassword" class="form-control" required/>
-                                <label class="form-label" for="loginPassword" >Password</label>
-                            </div>
-
-                            <div class="text-center mb-4">
-                                <!-- Simple link -->
-                                <a href="#!">Forgot password?</a>
-                            </div>
-                            <!-- Submit button -->
-                            <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign in" name="cuslogin"/>
-                        </form>
+                <h1 class="mb-3 text-center">Admin Login</h1>
+                <form>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form1Example1" class="form-control" />
+                        <label class="form-label" for="form1Example1">Email address</label>
                     </div>
-                    <div
-                            class="tab-pane fade"
-                            id="pills-register"
-                            role="tabpanel"
-                            aria-labelledby="tab-register"
-                                >
-                        <form action="login-registration.php" method="POST" >
 
-                            <p class="text-center fw-bold ">Register</p>
-
-                            <!-- Name input -->
-                            <div class="form-outline mb-4">
-                                <input type="text" name="registerName" class="form-control" required />
-                                <label class="form-label" for="registerName">Name</label>
-                            </div>
-
-                            <!-- Phone input -->
-                            <div class="form-outline mb-4">
-                                <input type="Phone" name="registerNumber" class="form-control" required/>
-                                <label class="form-label" for="registerNumber">Phone Number</label>
-                            </div>
-
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" name="registerPassword" class="form-control" required/>
-                                <label class="form-label" for="registerPassword">Password</label>
-                            </div>
-
-                            <!-- Repeat Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" name="RepeatPassword" class="form-control" required/>
-                                <label class="form-label" for="RepeatPassword">Repeat password</label>
-                            </div>
-
-                            <!-- Submit button -->
-                           <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign Up" name="cusreg" required/>
-                        </form>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example2" class="form-control" />
+                        <label class="form-label" for="form1Example2">Password</label>
                     </div>
-                </div>
 
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="form1Example3"
+                                        checked
+                                />
+                                <label class="form-check-label" for="form1Example3"> Remember me </label>
+                            </div>
+                        </div>
 
-                <!-- Pills content -->
+                        <div class="col">
+                            <!-- Simple link -->
+                            <a href="#!">Forgot password?</a>
+                        </div>
+                    </div>
 
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </form>
 
                 <!-- End your project here-->
             </div>
