@@ -4,7 +4,6 @@ $host = 'localhost';
 $dbUsrname = 'root';
 $dbPassword = '';
 $dbname = 'project';
-session_start();
 $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 
 $sql = "SELECT * FROM products";
@@ -82,12 +81,10 @@ $run_query = mysqli_query($conn, $sql);
 
 
 
-
-
 <div class="mask d-flex align-items-center h-100">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-4">
+            <div class="col-xl-7">
 
 
                 <!-- Start your project here-->
@@ -97,40 +94,35 @@ $run_query = mysqli_query($conn, $sql);
                 <p>
                     <a href="product-registration.html" type="button" class="btn btn-sm btn-success">Add Product</a>
                 </p>
+                <div class="table-responsive">
                 <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th scope="col">Title</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Price</th>
                     </tr>
                     </thead>
                     <tbody>
-
-
-
-
                     <?php while ($product = $run_query->fetch_assoc()) { ?>
                         <tr>
                             <td>
                                 <?php if ($product['image']): ?>
-                                    <img src="../uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="product-img" height="20" width="30">
+                                    <img src="../uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>" class="product-img" height="20" width="30">
                                 <?php endif; ?>
                             </td>
-                            <td><?php echo $product['title'] ?></td>
+                            <td><?php echo $product['name'] ?></td>
                             <td><?php echo $product['price'] ?></td>
                             <td>
-                                <a href="/products/update?id=<?php echo $product['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <form method="post" action="/products/delete" style="display: inline-block">
-                                    <input  type="hidden" name="id" value="<?php echo $product['id'] ?>"/>
+                                <button type="submit" class="btn btn-sm btn-outline-success">Add</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">Edit</button>
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                                </form>
                             </td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
-
+                </div>
                 <!-- End your project here-->
             </div>
         </div>

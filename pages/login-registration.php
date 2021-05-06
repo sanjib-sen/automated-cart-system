@@ -3,7 +3,6 @@ $host = 'localhost';
 $dbUsrname = 'root';
 $dbPassword = '';
 $dbname = 'project';
-session_start();
 $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 $login = true;
 $loginsucces = true;
@@ -183,7 +182,7 @@ if (isset($_POST['cuslogin'])) {
                     <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
                     </button>
                 </div>
-                <?php } else if($loginsucces && $login) {?>
+                <?php } else if(!$loginsucces && $login) {?>
                 <label class="mb-3 text-center"><?php echo $label ?> </label>
                 <div class="container-sm">
                 <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="login-register.html">Go

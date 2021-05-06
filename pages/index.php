@@ -1,5 +1,31 @@
+<?php
+$host = 'localhost';
+$dbUsrname = 'root';
+$dbPassword = '';
+$dbname = 'project';
+session_start();
+$conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
+$loginsucces = true;
+$label = "";
 
 
+$username = mysqli_real_escape_string($conn, $_POST['Username']);
+$pass = mysqli_real_escape_string($conn, $_POST['Password']);
+$sql = "SELECT * FROM admin WHERE user_id='$username' AND password='$pass'";
+$run_query = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($run_query);
+if ($count == 1) {
+    $row = mysqli_fetch_array($run_query);
+    $_SESSION['role'] = 'admin';
+    $_SESSION['id'] = $username;
+    $loginsucces = true;
+//        echo "Welcome";
+} else {
+//        echo "Incorrect Phone Number Or Passwrord";
+    $loginsucces = false;
+    $label = "Incorrect Username Or Password";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +42,7 @@
     <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-                />
+    />
     <!-- MDB -->
     <link rel="stylesheet" href="../css/mdb.min.css"/>
 </head>
@@ -35,7 +61,7 @@
                 aria-controls="navbarRightAlignExample"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-                    >
+        >
             <i class="fas fa-bars"></i>
         </button>
 
@@ -47,7 +73,7 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="productlist.html">Products</a>
+                    <a class="nav-link" href="products.php">Products</a>
                 </li>
 
                 <li class="nav-item">
@@ -56,8 +82,8 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="false"
-    >LogOut</a
->
+                    >LogOut</a
+                    >
                 </li>
             </ul>
             <!-- Left links -->
@@ -69,9 +95,6 @@
 <!-- Navbar -->
 
 
-
-
-
 <div class="mask d-flex align-items-center h-100">
     <div class="container">
         <div class="row justify-content-center">
@@ -79,29 +102,46 @@
 
 
                 <!-- Start your project here-->
-                <h1 class="mb-3 text-center">Admin Login</h1>
-                <form>
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <input type="email" id="form1Example1" class="form-control" />
-                        <label class="form-label" for="form1Example1">Email address</label>
+                <?php if ($loginsucces) { ?>
+                <h1 class="mb-3 text-center"> Login Successful </h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Customer Login/Signup</h5>
+                                <p class="card-text">
+                                    Create a New Customer or login to an Existing Customer.
+                                </p>
+                                <a href="login-register.html" class="btn btn-primary">Customer</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form1Example2" class="form-control" />
-                        <label class="form-label" for="form1Example2">Password</label>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Products Management</h5>
+                                <p class="card-text">
+                                    View, Edit and Manages Products.
+                                </p>
+                                <a href="products.php" class="btn btn-primary">Product</a>
+                            </div>
+                        </div>
                     </div>
-
-
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                </form>
-
-                <!-- End your project here-->
+                </div>
             </div>
+            <?php } else { ?>
+                <label class="mb-3 text-center"><?php echo $label ?> </label>
+                <div class="container-sm">
+                    <button type="button" class="btn btn-primary btn-rounded"
+                            onclick=location.href="login-register.html">Go Back
+                    </button>
+                </div>
+            <?php } ?>
+
+            <!-- End your project here-->
         </div>
     </div>
+</div>
 </div>
 
 <!-- MDB -->

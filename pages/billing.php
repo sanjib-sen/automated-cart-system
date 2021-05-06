@@ -4,7 +4,6 @@ $host = 'localhost';
 $dbUsrname = 'root';
 $dbPassword = '';
 $dbname = 'project';
-session_start();
 $_SESSION['customerId']= 1;
 
 $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);

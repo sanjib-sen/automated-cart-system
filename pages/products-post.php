@@ -103,7 +103,7 @@ if (isset($_POST['proreg'])) {
 
                 <form method="post" enctype="multipart/form-data">
                     <?php if ($image): ?>
-                        <img src="/<?php echo $image ?>" class="product-img-view">
+                        <img src="/<?php echo $image ?>" class="product-img-view" alt="">
                     <?php endif; ?>
                     <div class="form-group">
                         <label>Product Image</label><br>
