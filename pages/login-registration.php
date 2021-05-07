@@ -52,6 +52,7 @@ if (isset($_POST['cusreg'])) {
 //                echo "Successfully Registered";
                 $regsucces = true;
                 $login = false;
+                $_SESSION['role']='customer';
             }
         }
     }
@@ -68,6 +69,7 @@ if (isset($_POST['cuslogin'])) {
         $_SESSION['cust-id'] = $row['customer_id'];
         $loginsucces = true;
         $login = true;
+        $_SESSION['role']='customer';
 //        echo "Welcome";
     } else {
 //        echo "Incorrect Phone Number Or Passwrord";

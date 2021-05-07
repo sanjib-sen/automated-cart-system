@@ -9,7 +9,8 @@ $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 $sql = "SELECT * FROM products";
 $run_query = mysqli_query($conn, $sql);
 
-//?>
+session_start();
+?>
 
 
 <!DOCTYPE html>
@@ -54,21 +55,20 @@ $run_query = mysqli_query($conn, $sql);
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php if($_SESSION['role']=='admin'){ ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="login-register.html">Customer Registration</a>
                 </li>
+                <?php } else{ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="productlist.html">Products</a>
+                    <a class="nav-link active" aria-current="page" href="customer-info.php">Customer Info</a>
                 </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
+                    </li>
+                <?php }  ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="false"
-                    >LogOut</a
-                    >
+                    <a class="nav-link" href="logout-admin.php">Logout-Admin</a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -80,8 +80,8 @@ $run_query = mysqli_query($conn, $sql);
 <!-- Navbar -->
 
 
-
-<div class="mask d-flex align-items-center h-100">
+<div class="border border-0 p-5">
+<div class="d-flex align-items-center h-100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-7">
@@ -92,7 +92,7 @@ $run_query = mysqli_query($conn, $sql);
                 <h1>Products</h1>
 
                 <p>
-                    <a href="product-registration.html" type="button" class="btn btn-sm btn-success">Add Product</a>
+                    <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
                 </p>
                 <div class="table-responsive">
                 <table class="table">
@@ -101,6 +101,9 @@ $run_query = mysqli_query($conn, $sql);
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -113,10 +116,15 @@ $run_query = mysqli_query($conn, $sql);
                             </td>
                             <td><?php echo $product['name'] ?></td>
                             <td><?php echo $product['price'] ?></td>
-                            <td>
-                                <button type="submit" class="btn btn-sm btn-outline-success">Add</button>
-                                    <button type="submit" class="btn btn-sm btn-outline-primary">Edit</button>
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                            <td><?php echo $product['stock'] ?></td>
+                            <td><?php echo $product['category'] ?></td>
+                            <td> <form action="products-post.php" method="post">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
+                               <?php if($_SESSION['role']=='customer') { ?>
+                                   <input type="submit" class="btn btn-primary"  value="add to cart" name="add" required/> <?php  } ?>
+                                    <input type="submit" class="btn btn-secondary" value="Edit" name="update" required/>
+                                    <input type="submit" class="btn btn-danger" value="Delete" name="delete" required/>
+                                </form>
                             </td>
                         </tr>
                     <?php } ?>
@@ -127,6 +135,7 @@ $run_query = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- MDB -->

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="updated">
+      <change afterPath="$PROJECT_DIR$/pages/products-post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/logout-customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout-customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/0_sHL6zZcjCuVoSHy9.jfif608f2ff4920384.30143149" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/0_sHL6zZcjCuVoSHy9.jfif608f303e07f240.98514873" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2018-06-03_091456.796324vim_dishwash_bar_325gm_rtQTLb4.jpg608f3054910b31.73278042" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1619995940" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1619995939" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0" />
+  <component name="ProjectId" id="1ryosSUr2qlRgPGTUBsVKbFGYyb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\afroza\pages" />
+      <recent name="C:\xampp\htdocs\afroza" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Start Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8080">
+      <CommandLine parameters="php -S localhost:8080" workingDirectory="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="" />
+      <created>1619957901211</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619957901211</updated>
+      <workItem from="1619957903465" duration="234000" />
+      <workItem from="1619958207616" duration="22190000" />
+      <workItem from="1619996834170" duration="2126000" />
+      <workItem from="1620027711154" duration="4210000" />
+      <workItem from="1620294566340" duration="7687000" />
+      <workItem from="1620372587372" duration="1305000" />
+      <workItem from="1620385161264" duration="24816000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1619996015963</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619996015963</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1619996133542</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619996133542</updated>
+    </task>
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1619996877711</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619996877711</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added billing">
+      <created>1619998908658</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619998908658</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added onChange Script and Admin Login">
+      <created>1620028495055</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620028495055</updated>
+    </task>
+    <task id="LOCAL-00006" summary="removed forgetpass and rememberpass from admin login">
+      <created>1620028583519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620028583519</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated">
+      <created>1620302141639</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620302141639</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated">
+      <created>1620395803967</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620395803967</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="added billing" />
+    <MESSAGE value="Added onChange Script and Admin Login" />
+    <MESSAGE value="removed forgetpass and rememberpass from admin login" />
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+  </component>
+</project>

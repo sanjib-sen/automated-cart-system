@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['role']='admin';
 unset($_SESSION['cust-id']);
 ?>
 
@@ -90,7 +91,7 @@ unset($_SESSION['cust-id']);
                                 <div class="card-body">
                                     <h5 class="card-title">Products Management</h5>
                                     <p class="card-text">
-                                        View, Edit and Manages Products.
+                                        Add Products to Cart, Edit Product Info, Delete Product.
                                     </p>
                                     <a href="products.php" class="btn btn-primary">Product</a>
                                 </div>

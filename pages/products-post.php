@@ -6,37 +6,34 @@ $dbPassword = '';
 $dbname = 'project';
 $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 
+
 session_start();
-
-$title = mysqli_real_escape_string($conn, $_POST['title']);
-$description = mysqli_real_escape_string($conn, $_POST['description']);
-$price = mysqli_real_escape_string($conn, $_POST['price']);
-$stock = mysqli_real_escape_string($conn, $_POST['stock']);
-$category = mysqli_real_escape_string($conn, $_POST['category']);
-
-$label = '';
 $product_id = $_POST['product_id'];
-if ($_POST['action']=='registered'){
-    $sql_create = "INSERT INTO products (name,description, price, image, stock, category) VALUES ('$title','$description','$price','$filename', '$stock', '$category')";
-    $run_query_create = mysqli_query($conn, $sql_create);
-    $label = 'Product Registered.';
+$action = '';
+$label = '';
+if (isset($_POST['add'])) {
+    $action = "add";
 }
-if ($_POST['action']=='updated'){
-    $sql_update = "UPDATE products SET name='$title',description='$description',price='$price',stock='$stock',category='$category' WHERE product_id = '$product_id'";
-    $run_query_update = mysqli_query($conn, $sql_update);
-    if(!$_FILES['image']['name']==""){
-        $filename = (uniqid($_FILES['image']['name'], true));
-        move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $filename);
-        $sql_image_update = "UPDATE products SET image='$filename' WHERE product_id = '$product_id'";
-        $run_query_update_image = mysqli_query($conn, $sql_image_update);
-    }
-    $label='Product Updated';
-//    $label = 'Product Updated.';
+if (isset($_POST['update'])) {
+    $action = "update";
+    $update_sql = "SELECT * FROM products where product_id=$product_id";
+    $run_query_update = mysqli_query($conn, $update_sql);
+    $product = $run_query_update->fetch_assoc();
 }
+if (isset($_POST['delete'])) {
+    $action = "delete";
+    $del_sql = "DELETE FROM products where product_id=$product_id";
+    $run_del_query = mysqli_query($conn, $del_sql);
+    $label = "The product has been deleted.";
+}
+
 
 $sql = "SELECT * FROM products";
 $run_query = mysqli_query($conn, $sql);
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +41,7 @@ $run_query = mysqli_query($conn, $sql);
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>BRACU MART</title>
+    <title>Material Design for Bootstrap</title>
     <!-- MDB icon -->
     <link rel="icon" href="../img/mdb-favicon.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
@@ -108,10 +105,14 @@ $run_query = mysqli_query($conn, $sql);
 
 <div class="border border-0 p-5">
     <div class="d-flex align-items-center h-100">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7">
+
                     <!-- Start your project here-->
+
+                    <?php if ($action == 'add' || $action == 'delete') { ?>
+
                     <h1>Products</h1>
                     <p>
                         <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
@@ -166,7 +167,75 @@ $run_query = mysqli_query($conn, $sql);
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 
+
+<?php if ($action == 'update') { ?>
+<div class="border border-0 p-5">
+    <div class="d-flex align-items-center h-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <form action="product-registration.php" method="POST" enctype="multipart/form-data">
+
+                        <p class="text-center fw-bold ">Update Product</p>
+
+                        <!--          Image Input-->
+                        <?php if ($product['image']): ?>
+                            <img src="../uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"
+                                 class="product-img" height="40" width="60">
+                        <?php endif; ?>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="image">Image</label>
+                            <input type="file" id="image" class="form-control" name="image"
+                                   aria-describedby="inputGroupFileAddon03"
+                                   aria-label="Upload" value="<?php echo $product['image'] ?>"/>
+                        </div>
+
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="title" class="form-control" value="<?php echo $product['name'] ?>"
+                                   required/>
+                            <label class="form-label" for="title">Name</label>
+                        </div>
+
+                        <!-- Phone input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="description" value="<?php echo $product['description'] ?>"
+                                   class="form-control" required height=""/>
+                            <label class="form-label" for="description">Description</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="number" name="price" value="<?php echo $product['price'] ?>"
+                                   class="form-control" required/>
+                            <label class="form-label" for="price">Price</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" name="category" value="<?php echo $product['category'] ?>"
+                                   class="form-control" required height=""/>
+                            <label class="form-label" for="category">Category</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="number" name="stock" value="<?php echo $product['stock'] ?>"
+                                   class="form-control" required/>
+                            <label class="form-label" for="price">Stock</label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <input type="hidden" name="action" value="updated">
+                        <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
+                        <input type="submit" class="btn btn-primary btn-block mb-4" />
+                    </form>
+                    <?php } ?>
                     <!-- End your project here-->
                 </div>
             </div>
