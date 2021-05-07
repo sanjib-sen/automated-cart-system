@@ -13,6 +13,7 @@ $action = '';
 $label = '';
 if (isset($_POST['add'])) {
     $action = "add";
+    $label = "Added to Cart";
 }
 if (isset($_POST['update'])) {
     $action = "update";
@@ -118,7 +119,6 @@ $run_query = mysqli_query($conn, $sql);
                         <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
                     </p>
 
-
                     <div class="alert alert-success" role="alert">
                         <?php echo $label ?>
                     </div>
@@ -154,7 +154,7 @@ $run_query = mysqli_query($conn, $sql);
                                             <input type="hidden" name="product_id"
                                                    value="<?php echo $product['product_id'] ?>">
                                             <?php if ($_SESSION['role'] == 'customer') { ?>
-                                                <input type="submit" class="btn btn-primary" value="add to cart"
+                                                <input type="submit" class="btn btn-primary" value="add"
                                                        name="add" required/> <?php } ?>
                                             <input type="submit" class="btn btn-secondary" value="Edit" name="update"
                                                    required/>

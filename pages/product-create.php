@@ -43,6 +43,9 @@ session_start();
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="products.php">Products</a>
+                </li>
                 <?php if($_SESSION['role']=='admin'){ ?>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="login-register.html">Customer Registration</a>
@@ -55,6 +58,7 @@ session_start();
                         <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
                     </li>
                 <?php }  ?>
+
                 <li class="nav-item">
                     <a class="nav-link" href="logout-admin.php">Logout-Admin</a>
                 </li>

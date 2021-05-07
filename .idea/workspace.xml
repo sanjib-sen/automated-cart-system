@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="updated">
-      <change afterPath="$PROJECT_DIR$/pages/products-post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login-registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/logout-customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout-customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/product-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-create.php" afterDir="false" />
+    <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="arrrrgh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product-create.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/product-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products-post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/0_sHL6zZcjCuVoSHy9.jfif608f2ff4920384.30143149" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/0_sHL6zZcjCuVoSHy9.jfif608f303e07f240.98514873" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2018-06-03_091456.796324vim_dishwash_bar_325gm_rtQTLb4.jpg608f3054910b31.73278042" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +109,7 @@
       <workItem from="1620027711154" duration="4210000" />
       <workItem from="1620294566340" duration="7687000" />
       <workItem from="1620372587372" duration="1305000" />
-      <workItem from="1620385161264" duration="24816000" />
+      <workItem from="1620385161264" duration="25883000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619996015963</created>
@@ -172,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620395803967</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="arrrrgh">
+      <created>1620414086993</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1620414086993</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +198,7 @@
     <MESSAGE value="Added onChange Script and Admin Login" />
     <MESSAGE value="removed forgetpass and rememberpass from admin login" />
     <MESSAGE value="updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+    <MESSAGE value="arrrrgh" />
+    <option name="LAST_COMMIT_MESSAGE" value="arrrrgh" />
   </component>
 </project>

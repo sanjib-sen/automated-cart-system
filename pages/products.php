@@ -121,7 +121,7 @@ session_start();
                             <td> <form action="products-post.php" method="post">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                                <?php if($_SESSION['role']=='customer') { ?>
-                                   <input type="submit" class="btn btn-primary"  value="add to cart" name="add" required/> <?php  } ?>
+                                   <input type="submit" class="btn btn-primary"  value="add" name="add" required/> <?php  } ?>
                                     <input type="submit" class="btn btn-secondary" value="Edit" name="update" required/>
                                     <input type="submit" class="btn btn-danger" value="Delete" name="delete" required/>
                                 </form>

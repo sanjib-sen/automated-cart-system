@@ -153,7 +153,7 @@ $run_query = mysqli_query($conn, $sql);
                                             <input type="hidden" name="product_id"
                                                    value="<?php echo $product['product_id'] ?>">
                                             <?php if ($_SESSION['role'] == 'customer') { ?>
-                                                <input type="submit" class="btn btn-primary" value="add to cart"
+                                                <input type="submit" class="btn btn-primary" value="add"
                                                        name="add" required/> <?php } ?>
                                             <input type="submit" class="btn btn-secondary" value="Edit" name="update"
                                                    required/>
