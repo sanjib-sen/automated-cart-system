@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+unset($_SESSION['admin-id']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

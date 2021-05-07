@@ -1,3 +1,24 @@
+<?php
+$host = 'localhost';
+$dbUsrname = 'root';
+$dbPassword = '';
+$dbname = 'project';
+$conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
+$login = true;
+
+session_start();
+
+$admin = $_SESSION['admin-id'];
+$customer_id =$_SESSION['cust-id'];
+$sql = "SELECT * FROM customer WHERE customer_id='$customer_id'";
+$run_query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($run_query);
+
+$name = $row['name'];
+$phone = $row['phone_no'];
+$date = $row['join_date'];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +35,7 @@
     <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-                />
+    />
     <!-- MDB -->
     <link rel="stylesheet" href="../css/mdb.min.css"/>
 </head>
@@ -33,7 +54,7 @@
                 aria-controls="navbarRightAlignExample"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-                    >
+        >
             <i class="fas fa-bars"></i>
         </button>
 
@@ -42,9 +63,14 @@
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="products.php">Products</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout-admin.php">Logout-Admin</a>
+                </li>
             </ul>
             <!-- Left links -->
         </div>
@@ -54,9 +80,6 @@
 </nav>
 <!-- Navbar -->
 
-
-
-
 <div class="border border-0 p-5">
 <div class="d-flex align-items-center h-100">
     <div class="container">
@@ -65,29 +88,36 @@
 
 
                 <!-- Start your project here-->
-                <h1 class="mb-3 text-center">Admin Login</h1>
-                <form method="post" action="index.php">
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <input type="text" name="Username" class="form-control" />
-                        <label class="form-label" >Username</label>
-                    </div>
+                    <h1 class="mb-3 text-center"> Customer Info</h1>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td><?php echo $name ?></td>
+                        </tr>
+                        <tr>
+                            <td>Phone No</td>
+                            <td><?php echo $phone ?></td>
+                        </tr>
+                        <tr>
+                            <td>Join Date</td>
+                            <td><?php echo $date ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                <div class="container-sm">
+                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="bills.php">See bills
+                    </button>
+                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
+                    </button>
+                </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" name="Password" class="form-control" />
-                        <label class="form-label" >Password</label>
-                    </div>
 
 
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                </form>
-
-                <!-- End your project here-->
-            </div>
+            <!-- End your project here-->
         </div>
     </div>
+</div>
 </div>
 </div>
 <!-- MDB -->

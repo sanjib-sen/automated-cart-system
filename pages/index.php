@@ -17,7 +17,7 @@ $count = mysqli_num_rows($run_query);
 if ($count == 1) {
     $row = mysqli_fetch_array($run_query);
     $_SESSION['role'] = 'admin';
-    $_SESSION['id'] = $username;
+    $_SESSION['admin-id'] = $username;
     $loginsucces = true;
 //        echo "Welcome";
 } else {
@@ -33,7 +33,7 @@ if ($count == 1) {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Material Design for Bootstrap</title>
+    <title>BRACU MART</title>
     <!-- MDB icon -->
     <link rel="icon" href="../img/mdb-favicon.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
@@ -69,22 +69,24 @@ if ($count == 1) {
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <?php if ($loginsucces) { ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="login-register.html">Customer-Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products.php">Products</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="false"
-                    >LogOut</a
-                    >
+                    <a class="nav-link" href="logout-admin.php">Logout</a>
                 </li>
+                <?php } else{ ?>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <?php } ?>
             </ul>
             <!-- Left links -->
         </div>
@@ -94,8 +96,8 @@ if ($count == 1) {
 </nav>
 <!-- Navbar -->
 
-
-<div class="mask d-flex align-items-center h-100">
+<div class="border border-0 p-5">
+<div class="d-flex align-items-center h-100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-4">
