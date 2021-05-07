@@ -58,6 +58,8 @@ if (isset($_POST['cusreg'])) {
     }
 }
 
+
+
 if (isset($_POST['cuslogin'])) {
     $phone = mysqli_real_escape_string($conn, $_POST['loginNumber']);
     $pass = mysqli_real_escape_string($conn, $_POST['loginPassword']);

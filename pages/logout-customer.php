@@ -2,6 +2,7 @@
 session_start();
 $_SESSION['role']='admin';
 unset($_SESSION['cust-id']);
+unset($_SESSION['cart_count']);
 ?>
 
 <!DOCTYPE html>

@@ -11,10 +11,49 @@ session_start();
 $product_id = $_POST['product_id'];
 $action = '';
 $label = '';
-if (isset($_POST['add'])) {
+if (isset($_POST['add']) && $_SESSION['role']=='customer') {
     $action = "add";
-    $label = "Added to Cart";
+
+    $sql_cart_count = "SELECT * FROM cart";
+    $run_cart_count = mysqli_query($conn, $sql_cart_count);
+    $cart_count = mysqli_num_rows($run_cart_count);
+
+    if(!isset($_SESSION['cart_count'])){
+        $_SESSION['cart_count']=$cart_count+1;
+        $cart_id =$cart_count+1;
+    }
+    else{
+        $cart_id= $_SESSION['cart_count'];
+    }
+
+
+    if($cart_id>$cart_count) {
+        $sql_create = "INSERT INTO cart (cart_id) VALUES ('$cart_id')";
+        $run_query_create = mysqli_query($conn, $sql_create);
+    }
+    $sql_product_count = "SELECT * FROM added_to WHERE (cart_id = $cart_id AND product_id= $product_id)";
+    $run_product_count = mysqli_query($conn, $sql_product_count);
+    $product_count = mysqli_num_rows($run_product_count);
+
+    if($product_count>0){
+        $data = $run_product_count->fetch_assoc();
+        $quantity_more = $data['quantity']+1;
+        $sql_update = "UPDATE added_to SET quantity ='$quantity_more' WHERE (cart_id = $cart_id AND product_id= $product_id)";
+        $run_update = mysqli_query($conn, $sql_update);
+        $label = "Increased Quantity +1 = $quantity_more";
+    }
+    else {
+        $sql_add = "INSERT INTO added_to (product_id, cart_id, quantity) VALUES ('$product_id','$cart_id', 1)";
+        $run_add = mysqli_query($conn, $sql_add);
+        $label = "Added to Cart";
+    }
 }
+
+if (isset($_POST['add']) && $_SESSION['role']=='admin') {
+    $label = "Customer is not logged in.";
+}
+
+
 if (isset($_POST['update'])) {
     $action = "update";
     $update_sql = "SELECT * FROM products where product_id=$product_id";
@@ -78,14 +117,19 @@ $run_query = mysqli_query($conn, $sql);
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php if (isset($_SESSION['cart_count'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.php">Go to Cart</a>
+                    </li>
+                <?php } ?>
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login-register.html">Customer
+                        <a class="nav-link active" href="login-register.html">Customer
                             Registration</a>
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="customer-info.php">Customer Info</a>
+                        <a class="nav-link active" href="customer-info.php">Customer Info</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
