@@ -1,26 +1,7 @@
 <?php
 session_start();
-$host = 'localhost';
-$dbUsrname = 'root';
-$dbPassword = '';
-$dbname = 'project';
-$customer_id = $_SESSION['cust-id'];
-$bill = $_SESSION['bill'];
-$conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
-
-$sql = "SELECT * FROM customer where customer_id = '$customer_id'";
-$run_query = mysqli_query($conn, $sql);
-$result = $run_query->fetch_assoc();
-$customer_name = $result['name'];
-$join_date = $result['join_date'];
-
-$year = (int)substr($join_date, 2, 2);
-
-$current_year = (int)substr(date('Y-m-d H:i:s'), 2, 2);
-
-$offer = ((($current_year - $year) * 10) + 1) / 100;
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +9,7 @@ $offer = ((($current_year - $year) * 10) + 1) / 100;
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Material Design for Bootstrap</title>
+    <title>BRACU MART</title>
     <!-- MDB icon -->
     <link rel="icon" href="../img/mdb-favicon.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
@@ -40,8 +21,26 @@ $offer = ((($current_year - $year) * 10) + 1) / 100;
     />
     <!-- MDB -->
     <link rel="stylesheet" href="../css/mdb.min.css"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -101,62 +100,52 @@ $offer = ((($current_year - $year) * 10) + 1) / 100;
             <div class="row justify-content-center">
                 <div class="col-xl-4">
 
+                    <h2>Invoice</h2>
 
-                    <!-- Start your project here-->
-
-                    <h1 class="mb-3 text-center"> Billing Info </h1>
-                    <table class="table">
-                        <tbody>
+                    <table>
                         <tr>
-                            <td>Customer Name</td>
-                            <td> <?php echo $customer_name ?> </td>
+                            <th>Bill Date</th>
+                            <th>Bill Id</th>
+                            <th>Paid Amount</th>
+                            <th>Payment Method</th>
                         </tr>
                         <tr>
-                            <td>Bill</td>
-                            <td><?php echo $bill, " BDT" ?></td>
+                            <td>22-03-21</td>
+                            <td>01</td>
+                            <td>500</td>
+                            <td>Bkash</td>
                         </tr>
                         <tr>
-                            <td>Discount</td>
-                            <td><?php echo($offer * $bill), " BDT" ?></td>
+                            <td>23-03-21</td>
+                            <td>02</td>
+                            <td>640</td>
+                            <td>Rocket</td>
                         </tr>
                         <tr>
-                            <td>Total Bill</td>
-                            <td><?php echo($bills = ($bill - ($offer * $bill))), " BDT" ?></td>
+                            <td>23-03-21</td>
+                            <td>03</td>
+                            <td>990</td>
+                            <td>Bkash</td>
                         </tr>
                         <tr>
-                            <td>
-                                Payment Method
-                            </td>
-                            <td>
-                                <?php if (isset($_POST['payment'])) {
-                                    echo $_POST['payment']; ?>
-                                    <form action="logout-customer.php" method="post">
-                                        <br>
-                                        <input type="submit" class="btn-outline-success"
-                                               value="Logout">
-                                    </form>
-
-                                <?php } else { ?>
-                                    <form action="billing.php" method="post">
-                                        <label for="method"></label>
-                                        <select id="method" name="payment" class="btn-outline-primary" required>
-                                            <option value="bkash">Bkash</option>
-                                            <option value="nagad">Nagad</option>
-                                            <option value="rocket">Rocket</option>
-                                            <option value="card">Card</option>
-                                            <option value="cash">Cash</option>
-                                        </select>
-                                        <br>
-                                        <br>
-                                        <input type="submit" class="btn-outline-success"
-                                               value="Pay <?php echo $bills?> BDT">
-                                    </form>
-                                <?php } ?>
-                            </td>
+                            <td>24-04-21</td>
+                            <td>04</td>
+                            <td>1090</td>
+                            <td>Nagad</td>
                         </tr>
-                        </tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </table>
-
 
                     <!-- End your project here-->
                 </div>

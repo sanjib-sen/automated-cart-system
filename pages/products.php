@@ -122,8 +122,10 @@ session_start();
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
                                <?php if($_SESSION['role']=='customer') { ?>
                                    <input type="submit" class="btn btn-primary"  value="add" name="add" required/> <?php  } ?>
+                                    <?php if($_SESSION['role']!='customer') { ?>
                                     <input type="submit" class="btn btn-secondary" value="Edit" name="update" required/>
                                     <input type="submit" class="btn btn-danger" value="Delete" name="delete" required/>
+                                    <?php  } ?>
                                 </form>
                             </td>
                         </tr>
