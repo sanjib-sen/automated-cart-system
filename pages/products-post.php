@@ -14,10 +14,17 @@ $label = '';
 if (isset($_POST['add']) && $_SESSION['role']=='customer') {
     $action = "add";
 
+
     $sql_cart_count = "SELECT * FROM cart";
     $run_cart_count = mysqli_query($conn, $sql_cart_count);
     $cart_count = mysqli_num_rows($run_cart_count);
 
+    if($cart_count!=0) {
+        $sql_2 = "SELECT * FROM cart ORDER BY cart_id DESC LIMIT 1";
+        $run_2 = mysqli_query($conn, $sql_2);
+        $fetch = $run_2->fetch_assoc();
+        $cart_count = $fetch['cart_id'];
+    }
     if(!isset($_SESSION['cart_count'])){
         $_SESSION['cart_count']=$cart_count+1;
         $cart_id =$cart_count+1;
@@ -49,9 +56,6 @@ if (isset($_POST['add']) && $_SESSION['role']=='customer') {
     }
 }
 
-if (isset($_POST['add']) && $_SESSION['role']=='admin') {
-    $label = "Customer is not logged in.";
-}
 
 
 if (isset($_POST['update'])) {
@@ -62,7 +66,7 @@ if (isset($_POST['update'])) {
 }
 if (isset($_POST['delete'])) {
     $action = "delete";
-    $del_sql = "DELETE FROM products where product_id=$product_id";
+    $del_sql = "DELETE FROM products where product_id='$product_id'";
     $run_del_query = mysqli_query($conn, $del_sql);
     $label = "The product has been deleted.";
 }
@@ -159,9 +163,13 @@ $run_query = mysqli_query($conn, $sql);
                     <?php if ($action == 'add' || $action == 'delete') { ?>
 
                     <h1>Products</h1>
+
+                    <?php if ($_SESSION['role']!='customer') { ?>
                     <p>
                         <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
                     </p>
+
+                    <?php } ?>
 
                     <div class="alert alert-success" role="alert">
                         <?php echo $label ?>

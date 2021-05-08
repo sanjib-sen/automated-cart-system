@@ -1,5 +1,23 @@
 <?php
 session_start();
+$host = 'localhost';
+$dbUsrname = 'root';
+$dbPassword = '';
+$dbname = 'project';
+$customer_id = $_SESSION['cust-id'];
+$bill = $_SESSION['bill'];
+$conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
+
+$cust_id = $_SESSION['cust-id'];
+$sql_customer = "SELECT * FROM customer WHERE customer_id = '$cust_id'";
+$name_query = mysqli_query($conn, $sql_customer);
+$customer = $name_query->fetch_assoc();
+
+$sql_bills = "SELECT * FROM bills WHERE customer_id = '$cust_id'";
+$bill_query = mysqli_query($conn, $sql_bills);
+
+
+// SELECT SUM(pro.price*quantity) FROM added_to as cart INNER JOIN products as pro ON cart.product_id = pro.product_id WHERE cart.cart_id =(SELECT made_for FROM billing WHERE bill_id=16)
 ?>
 
 
@@ -100,51 +118,43 @@ session_start();
             <div class="row justify-content-center">
                 <div class="col-xl-4">
 
-                    <h2>Invoice</h2>
+                    <h2>Billing History</h2>
 
                     <table>
+                        <thead>
                         <tr>
-                            <th>Bill Date</th>
                             <th>Bill Id</th>
                             <th>Paid Amount</th>
                             <th>Payment Method</th>
                         </tr>
+                        </thead>
+
+                        <?php while ($bill = $bill_query->fetch_assoc()){ ?>
+
                         <tr>
-                            <td>22-03-21</td>
-                            <td>01</td>
-                            <td>500</td>
-                            <td>Bkash</td>
+                            <td> <?php echo $bill['bill_id'] ?> </td>
+                            <td>
+                                <?php
+                                $bill_id = $bill['bill_id'];
+                                $sql_command = "SELECT SUM(pro.price*quantity) as paid FROM added_to as cart INNER JOIN products as pro ON cart.product_id = pro.product_id WHERE cart.cart_id =(SELECT made_for FROM billing WHERE bill_id='$bill_id')";
+                                $run_sql_command = mysqli_query($conn,$sql_command);
+                                $result =$run_sql_command->fetch_assoc();
+                                $paid = $result['paid'];
+                                echo $paid;
+                                ?>
+                            </td>
+                            <td>
+
+                                <?php
+                                $sql_command_2 = "SELECT * FROM payment WHERE bill_id='$bill_id'";
+                                $run_sql_command_2 = mysqli_query($conn,$sql_command_2);
+                                $result_2 =$run_sql_command_2->fetch_assoc();
+                                $pay = $result_2['payment_method'];
+                                echo $pay;
+                                ?>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>23-03-21</td>
-                            <td>02</td>
-                            <td>640</td>
-                            <td>Rocket</td>
-                        </tr>
-                        <tr>
-                            <td>23-03-21</td>
-                            <td>03</td>
-                            <td>990</td>
-                            <td>Bkash</td>
-                        </tr>
-                        <tr>
-                            <td>24-04-21</td>
-                            <td>04</td>
-                            <td>1090</td>
-                            <td>Nagad</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <?php } ?>
                     </table>
 
                     <!-- End your project here-->

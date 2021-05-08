@@ -15,13 +15,20 @@ $stock = mysqli_real_escape_string($conn, $_POST['stock']);
 $category = mysqli_real_escape_string($conn, $_POST['category']);
 
 $label = '';
-$product_id = $_POST['product_id'];
+
+
+if(!$_FILES['image']['name']==""){
+    $filename = (uniqid($_FILES['image']['name'], true));
+    move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $filename);
+}
+
 if ($_POST['action']=='registered'){
     $sql_create = "INSERT INTO products (name,description, price, image, stock, category) VALUES ('$title','$description','$price','$filename', '$stock', '$category')";
     $run_query_create = mysqli_query($conn, $sql_create);
     $label = 'Product Registered.';
 }
 if ($_POST['action']=='updated'){
+    $product_id = $_POST['product_id'];
     $sql_update = "UPDATE products SET name='$title',description='$description',price='$price',stock='$stock',category='$category' WHERE product_id = '$product_id'";
     $run_query_update = mysqli_query($conn, $sql_update);
     if(!$_FILES['image']['name']==""){
@@ -113,10 +120,12 @@ $run_query = mysqli_query($conn, $sql);
                 <div class="col-xl-7">
                     <!-- Start your project here-->
                     <h1>Products</h1>
-                    <p>
-                        <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
-                    </p>
+                    <?php if ($_SESSION['role']!='customer') { ?>
+                        <p>
+                            <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
+                        </p>
 
+                    <?php } ?>
 
                     <div class="alert alert-success" role="alert">
                         <?php echo $label ?>

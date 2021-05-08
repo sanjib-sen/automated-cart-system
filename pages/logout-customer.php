@@ -1,8 +1,13 @@
 <?php
 session_start();
 $_SESSION['role']='admin';
-unset($_SESSION['cust-id']);
-unset($_SESSION['cart_count']);
+$admin = $_SESSION['admin-id'];
+
+session_destroy();
+session_start();
+$_SESSION['role']='admin';
+$_SESSION['admin-id'] = $admin ;
+
 ?>
 
 <!DOCTYPE html>

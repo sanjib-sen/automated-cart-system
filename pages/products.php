@@ -91,9 +91,13 @@ session_start();
 
                 <h1>Products</h1>
 
-                <p>
-                    <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
-                </p>
+                <?php if ($_SESSION['role']!='customer') { ?>
+                    <p>
+                        <a href="product-create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
+                    </p>
+
+                <?php } ?>
+
                 <div class="table-responsive">
                 <table class="table">
                     <thead>

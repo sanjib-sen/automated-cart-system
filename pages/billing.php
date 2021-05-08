@@ -20,6 +20,38 @@ $current_year = (int)substr(date('Y-m-d H:i:s'), 2, 2);
 
 $offer = ((($current_year - $year) * 10) + 1) / 100;
 
+
+if(isset($_POST['payment'])){
+    $pay_label = $_POST['payment'];
+    $sql_add_bill = "INSERT INTO does (customer_id) VALUES ('$customer_id')";
+    $run_query_1 = mysqli_query($conn, $sql_add_bill);
+
+    $sql_does_count = "SELECT * FROM does";
+    $run_does_count = mysqli_query($conn, $sql_does_count);
+    $does_count = mysqli_num_rows($run_does_count);
+
+    if($does_count!=0) {
+
+
+        $sql_2 = "SELECT * FROM does ORDER BY bill_id DESC LIMIT 1";
+        $run_2 = mysqli_query($conn, $sql_2);
+        $fetch = $run_2->fetch_assoc();
+        $bill_id = $fetch['bill_id'];
+
+    }
+
+    $sql_insert_bills = "INSERT INTO bills (bill_id, customer_id) VALUES ('$bill_id','$customer_id')";
+    $run_query_2 = mysqli_query($conn, $sql_insert_bills);
+    $cart_id = $_SESSION['cart_count'];
+    $sql_insert_billing = "INSERT INTO billing (bill_id, made_for) VALUES ('$bill_id','$cart_id')";
+    $run_query_3 = mysqli_query($conn, $sql_insert_billing);
+    $sql_insert_payment = "INSERT INTO payment (bill_id, payment_method) VALUES ('$bill_id','$pay_label')";
+    $run_query_4 = mysqli_query($conn, $sql_insert_payment);
+
+    unset($_SESSION['cart_count']);
+
+}
+
 ?>
 
 <!DOCTYPE html>
