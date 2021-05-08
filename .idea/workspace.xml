@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="arrrrgh">
-      <change afterPath="$PROJECT_DIR$/pages/afrozacart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/billinglist.php" afterDir="false" />
+    <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="arrrrggggggghhhh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/billing.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/billing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +106,7 @@
       <workItem from="1620294566340" duration="7687000" />
       <workItem from="1620372587372" duration="1305000" />
       <workItem from="1620385161264" duration="40557000" />
-      <workItem from="1620458891835" duration="5597000" />
+      <workItem from="1620458891835" duration="6286000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619996015963</created>
@@ -189,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620430217536</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="arrrrggggggghhhh">
+      <created>1620465490626</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620465490627</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +217,7 @@
     <MESSAGE value="removed forgetpass and rememberpass from admin login" />
     <MESSAGE value="updated" />
     <MESSAGE value="arrrrgh" />
-    <option name="LAST_COMMIT_MESSAGE" value="arrrrgh" />
+    <MESSAGE value="arrrrggggggghhhh" />
+    <option name="LAST_COMMIT_MESSAGE" value="arrrrggggggghhhh" />
   </component>
 </project>
