@@ -189,8 +189,19 @@ if(isset($_POST['payment'])){
                         </tbody>
                     </table>
 
+        <?php if (isset($_POST['payment'])) { ?>
+                    <div class="justify-content-center">
+                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">
+                            Go Shopping
+                    </div>
+                <?php } else { ?>
+                    <div class="justify-content-center">
+                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="cart.php">
+                           Go Back to Cart
+                    </div>
 
-                    <!-- End your project here-->
+                    <?php } ?>
+    <!-- End your project here-->
                 </div>
             </div>
         </div>

@@ -25,15 +25,25 @@ if(!$_FILES['image']['name']==""){
 if ($_POST['action']=='registered'){
     $sql_create = "INSERT INTO products (name,description, price, image, stock, category) VALUES ('$title','$description','$price','$filename', '$stock', '$category')";
     $run_query_create = mysqli_query($conn, $sql_create);
+
+    $sql_2 = "SELECT * FROM products ORDER BY product_id DESC LIMIT 1";
+    $run_2 = mysqli_query($conn, $sql_2);
+    $fetch = $run_2->fetch_assoc();
+    $product_id = $fetch['product_id'];
+    $admin = $_SESSION['admin-id'];
+
+
+    $sql3 = "INSERT INTO manages (product_id,user_id) VALUES ('$product_id','$admin')";
+    $run_query3 = mysqli_query($conn, $sql3);
     $label = 'Product Registered.';
 }
 if ($_POST['action']=='updated'){
+
     $product_id = $_POST['product_id'];
     $sql_update = "UPDATE products SET name='$title',description='$description',price='$price',stock='$stock',category='$category' WHERE product_id = '$product_id'";
     $run_query_update = mysqli_query($conn, $sql_update);
-    if(!$_FILES['image']['name']==""){
-        $filename = (uniqid($_FILES['image']['name'], true));
-        move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $filename);
+    if(isset($filename) && !$filename==""){
+        echo $_FILES['image']['name'];
         $sql_image_update = "UPDATE products SET image='$filename' WHERE product_id = '$product_id'";
         $run_query_update_image = mysqli_query($conn, $sql_image_update);
     }

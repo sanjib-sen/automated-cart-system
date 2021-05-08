@@ -86,6 +86,11 @@ $bill_query = mysqli_query($conn, $sql_bills);
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php if (isset($_SESSION['cart_count'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.php">Cart</a>
+                    </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="products.php">Products</a>
                 </li>
@@ -112,7 +117,7 @@ $bill_query = mysqli_query($conn, $sql_bills);
 
 
                     <!-- Start your project here-->
-                    <h2> Customer Info</h2>
+                    <h1> Customer Info</h1>
                     <table class="table">
                         <tbody>
                         <tr>
@@ -130,7 +135,8 @@ $bill_query = mysqli_query($conn, $sql_bills);
                         </tbody>
                     </table>
 
-
+                    <br>
+                    <br>
                     <h2>Billing History</h2>
 
                     <table>

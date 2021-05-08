@@ -169,7 +169,7 @@ if (isset($_POST['cuslogin'])) {
                         </tr>
                         <tr>
                             <td>Join Date</td>
-                            <td><?php echo $date ?></td>
+                            <td><?php echo  substr($date, 0, 10); ?></td>
                         </tr>
                         </tbody>
                     </table>
@@ -185,12 +185,31 @@ if (isset($_POST['cuslogin'])) {
                     </div>
                 <?php } ?>
 
+
+
                 <?php if ($loginsucces && $login) { ?>
-                <label class="mb-3 text-center"> Login Successful </label>
-                <div class="container-sm">
-                    <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
-                    </button>
-                </div>
+                    <h1 class="mb-3 text-center"> Logged in Successful </h1>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td><?php echo $name ?></td>
+                        </tr>
+                        <tr>
+                            <td>Phone No</td>
+                            <td><?php echo $phone ?></td>
+                        </tr>
+                        <tr>
+                            <td>Join Date</td>
+                            <td><?php echo  substr($date, 0, 10); ?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-rounded" onclick=location.href="customer-info.php">Billing History
+                        </button>
+
                 <?php } else if(!$loginsucces && $login) {?>
                 <label class="mb-3 text-center"><?php echo $label ?> </label>
                 <div class="container-sm">

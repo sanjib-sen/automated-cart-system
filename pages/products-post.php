@@ -233,7 +233,6 @@ $run_query = mysqli_query($conn, $sql);
                     <form action="product-registration.php" method="POST" enctype="multipart/form-data">
 
                         <p class="text-center fw-bold ">Update Product</p>
-
                         <!--          Image Input-->
                         <?php if ($product['image']): ?>
                             <img src="../uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"

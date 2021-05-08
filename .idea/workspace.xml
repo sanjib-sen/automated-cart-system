@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="readme updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/afrozacart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/afrozacart.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/billing.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/billing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/billinglist.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/billinglist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/billinglist.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/customer-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/customer-info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/logout-customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout-customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/logout-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout-admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/product-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-registration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/products-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products-post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.php" afterDir="false" />
@@ -115,7 +117,7 @@
       <workItem from="1620294566340" duration="7687000" />
       <workItem from="1620372587372" duration="1305000" />
       <workItem from="1620385161264" duration="40557000" />
-      <workItem from="1620458891835" duration="18216000" />
+      <workItem from="1620458891835" duration="24305000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619996015963</created>
@@ -215,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620466157044</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="readme updated">
+      <created>1620482946345</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1620482946345</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

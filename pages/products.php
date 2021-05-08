@@ -55,6 +55,11 @@ session_start();
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php if (isset($_SESSION['cart_count'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.php">Go to Cart</a>
+                    </li>
+                <?php } ?>
                 <?php if($_SESSION['role']=='admin'){ ?>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="login-register.html">Customer Registration</a>

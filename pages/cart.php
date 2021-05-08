@@ -22,6 +22,14 @@ if (isset($_POST['add'])) {
 
 }
 
+if (isset($_POST['action']) && $_POST['action']=='Remove') {
+    $product_id_here = $_POST['product_id'];
+
+    $sql_update = "DELETE FROM added_to  WHERE (cart_id = $cart_id AND product_id= $product_id_here)";
+    $run_update = mysqli_query($conn, $sql_update);
+
+}
+
 $sql_cart = "SELECT * FROM added_to WHERE cart_id = '$cart_id'";
 $products_query = mysqli_query($conn, $sql_cart);
 
@@ -103,11 +111,6 @@ $bill = 0;
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <?php if (isset($_SESSION['cart_count'])){ ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="billing.php">Go to Billing</a>
-                    </li>
-                <?php } ?>
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="login-register.html">Customer
@@ -138,7 +141,7 @@ $bill = 0;
     <div class="d-flex align-items-center h-100">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-xl-4">
+                <div class="col-xl-7">
 
 
                     <!-- Start your project here-->
@@ -191,20 +194,24 @@ $bill = 0;
                                     $_SESSION['bill'] =$bill;?>
                                 </td>
                                 <td class="actions" data-th="">
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa" aria-hidden="true">Remove</i>
-                                    </button>
+                                    <form action="cart.php" method="post">
+                                        <input type="hidden" name="product_id"
+                                               value="<?php echo $product['product_id'] ?>">
+                                        <input type="submit" class="btn btn-danger btn-sm px-3" name="action" value="Remove">
+                                    </form>
                                 </td>
                             </tr>
                             <?php } ?>
                             </tbody>
                             <tfoot>
                             <tr>
-                                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i>Go Back</a></td>
+                                <td><a href="products.php" class="btn btn-warning"><i class="fa fa-angle-left"></i>Go Back</a></td>
                                 <td colspan="2" class="hidden-xs"></td>
-                                <td class="hidden-xs text-center"><strong><?php echo $bill; ?></strong></td>
+                                <td class="hidden-xs text-center"><strong><?php echo "Total Bill:   ", $bill; ?></strong></td>
+                               <?php if ($bill!=0) {?>
                                 <td><a href="billing.php" class="btn btn-success btn-block">Procced To Bill <i class="fa fa-angle-right"></i></a>
                                 </td>
+                                <?php } ?>
                             </tr>
                             </tfoot>
                         </table>
