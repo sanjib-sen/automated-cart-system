@@ -6,11 +6,14 @@ $dbPassword = '';
 $dbname = 'project';
 $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 
+$label = '';
+
+
 
 session_start();
 $product_id = $_POST['product_id'];
 $action = '';
-$label = '';
+
 if (isset($_POST['add']) && $_SESSION['role']=='customer') {
     $action = "add";
 
@@ -128,7 +131,7 @@ $run_query = mysqli_query($conn, $sql);
                 <?php } ?>
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="login-register.html">Customer
+                        <a class="nav-link active" href="login-register.php">Customer
                             Registration</a>
                     </li>
                 <?php } else { ?>

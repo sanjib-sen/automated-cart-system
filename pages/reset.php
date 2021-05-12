@@ -11,11 +11,8 @@
 	}
 		$phone=mysqli_real_escape_string($conn,$_POST['phone']);
 		$pass=mysqli_real_escape_string($conn,$_POST['Password']);
-		$repass=mysqli_real_escape_string($conn,$_POST['ConfirmPass']);
-		if($pass!==$repass){
-			echo"Password didn't match";
-			exit();
-		}
+
+
        $sql = "SELECT customer_id FROM customer WHERE phone_no = '$phone'" ;
        $check_query = mysqli_query($conn,$sql); 
        $count_no = mysqli_num_rows($check_query); 

@@ -53,7 +53,7 @@ $_SESSION['admin-id'] = $admin ;
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="login-register.html">Customer Login</a>
+                    <a class="nav-link active" aria-current="page" href="login-register.php">Customer Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products.php">Products</a>
@@ -88,7 +88,7 @@ $_SESSION['admin-id'] = $admin ;
                                     <p class="card-text">
                                         Create a New Customer or login to an Existing Customer.
                                     </p>
-                                    <a href="login-register.html" class="btn btn-primary">Customer</a>
+                                    <a href="login-register.php" class="btn btn-primary">Customer</a>
                                 </div>
                             </div>
                         </div>

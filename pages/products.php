@@ -62,7 +62,7 @@ session_start();
                 <?php } ?>
                 <?php if($_SESSION['role']=='admin'){ ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="login-register.html">Customer Registration</a>
+                    <a class="nav-link active" aria-current="page" href="login-register.php">Customer Registration</a>
                 </li>
                 <?php } else{ ?>
                 <li class="nav-item">
@@ -92,9 +92,19 @@ session_start();
             <div class="col-xl-7">
 
 
+                <?php if (isset($_POST['fromlogin'])) { ?>
+
+                    <div class="alert alert-success" role="alert">
+                        Login Successful
+                    </div>
+
+                <?php } ?>
+
                 <!-- Start your project here-->
 
                 <h1>Products</h1>
+
+
 
                 <?php if ($_SESSION['role']!='customer') { ?>
                     <p>

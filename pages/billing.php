@@ -103,7 +103,7 @@ if(isset($_POST['payment'])){
                 <?php } ?>
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="login-register.html">Customer
+                        <a class="nav-link active" href="login-register.php">Customer
                             Registration</a>
                     </li>
                 <?php } else { ?>

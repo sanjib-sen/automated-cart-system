@@ -99,7 +99,7 @@ $run_query = mysqli_query($conn, $sql);
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login-register.html">Customer
+                        <a class="nav-link active" aria-current="page" href="login-register.php">Customer
                             Registration</a>
                     </li>
                 <?php } else { ?>

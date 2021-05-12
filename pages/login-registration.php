@@ -72,7 +72,11 @@ if (isset($_POST['cuslogin'])) {
         $loginsucces = true;
         $login = true;
         $_SESSION['role']='customer';
-//        echo "Welcome";
+
+
+//        header("Location: products.php");
+
+
     } else {
 //        echo "Incorrect Phone Number Or Passwrord";
         $login = true;
@@ -189,26 +193,12 @@ if (isset($_POST['cuslogin'])) {
 
                 <?php if ($loginsucces && $login) { ?>
                     <h1 class="mb-3 text-center"> Logged in Successful </h1>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td><?php echo $name ?></td>
-                        </tr>
-                        <tr>
-                            <td>Phone No</td>
-                            <td><?php echo $phone ?></td>
-                        </tr>
-                        <tr>
-                            <td>Join Date</td>
-                            <td><?php echo  substr($date, 0, 10); ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">Go Shopping
-                        </button>
-                        <button type="button" class="btn btn-secondary btn-rounded" onclick=location.href="customer-info.php">Billing History
-                        </button>
+                <?php
+                    echo "<script> alert ('Welcome') </script>";
+                    "<script> window.location='login-registration.php' </script>";
+                header("Location: products.php");
+                exit();
+                ?>
 
                 <?php } else if(!$loginsucces && $login) {?>
                 <label class="mb-3 text-center"><?php echo $label ?> </label>

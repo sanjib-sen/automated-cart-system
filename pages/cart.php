@@ -113,7 +113,7 @@ $bill = 0;
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="login-register.html">Customer
+                        <a class="nav-link" href="login-register.php">Customer
                             Registration</a>
                     </li>
                 <?php } else { ?>
@@ -146,9 +146,6 @@ $bill = 0;
 
                     <!-- Start your project here-->
                     <h1 class="mb-3 text-center">Cart for <?php echo $customer['name'] ?> </h1>
-                    <p>
-                        <a href="products.php" type="button" class="btn btn-sm btn-success">Add More</a>
-                    </p>
 <!--                    <div class="table-responsive">-->
                         <table id="cart" class="table table-hover table-condensed">
                             <thead>

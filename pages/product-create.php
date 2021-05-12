@@ -48,7 +48,7 @@ session_start();
                 </li>
                 <?php if($_SESSION['role']=='admin'){ ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login-register.html">Customer Registration</a>
+                        <a class="nav-link active" aria-current="page" href="login-register.php">Customer Registration</a>
                     </li>
                 <?php } else{ ?>
                     <li class="nav-item">

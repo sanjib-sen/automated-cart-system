@@ -3,6 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="86263efa-7234-4dd9-b08d-7658a76224f6" name="Default Changelist" comment="readme updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/billing.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/billing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/forget-pass.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/forget-pass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login-register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/logout-customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout-customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product-create.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product-registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product-registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products-post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reset.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +57,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1619995940" />
+                    <option name="branchName" value="newBranchNamedAfroza" />
+                    <option name="lastUsedInstant" value="1620817536" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1619995939" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1619995940" />
                   </RecentBranch>
                 </list>
               </option>
@@ -112,7 +126,7 @@
       <workItem from="1620385161264" duration="40557000" />
       <workItem from="1620458891835" duration="24920000" />
       <workItem from="1620576576655" duration="28000" />
-      <workItem from="1620811428551" duration="1218000" />
+      <workItem from="1620811428551" duration="10408000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619996015963</created>
