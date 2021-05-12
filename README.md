@@ -1,4 +1,9 @@
 # Project-ShoppingCart
-save/copy project folder to
 
-`C:\xampp\mysql\data`
+
+### Import database:
+
+1. Create a database named `Project` 
+2. Click `Import`
+3. Select Choose File and choose `Backup/project.sql` File
+4. Select `Go`
