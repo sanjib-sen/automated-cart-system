@@ -95,7 +95,7 @@ session_start();
                 <?php if (isset($_POST['fromlogin'])) { ?>
 
                     <div class="alert alert-success" role="alert">
-                        Login Successful
+                        <?php echo $_POST['fromlogin'] ?>
                     </div>
 
                 <?php } ?>

@@ -173,13 +173,19 @@ if (isset($_POST['cuslogin'])) {
 
 
                     <!-- Pills navs -->
+                    <?php if (isset($_POST['fromlogin'])) { ?>
 
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $_POST['fromlogin'] ?>
+                        </div>
+
+                    <?php } ?>
 
 
                     <?php if (isset($loginsucces) && isset($loginsucces) && $loginsucces && $login) { ?>
 
                     <form name="myform" method="post" action="products.php">
-                        <input type="hidden" name="fromlogin" >
+                        <input type="hidden" name="fromlogin" value="Login Successful">
                         <script language="JavaScript">document.myform.submit();</script></form>
 
                    <?php } ?>
@@ -289,7 +295,7 @@ if (isset($_POST['cuslogin'])) {
 
                                     <div class="text-center mb-4">
                                         <!-- Simple link -->
-                                        <a href="forget-pass.html">Forgot password?</a>
+                                        <a href="reset.php">Forgot password?</a>
                                     </div>
                                     <!-- Submit button -->
                                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign in"
