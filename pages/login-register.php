@@ -157,7 +157,7 @@ if (isset($_POST['cuslogin'])) {
     <div class="d-flex align-items-center h-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-4">
+                <div class="col-xl-7">
 
 
                     <!-- Start your project here-->
