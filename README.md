@@ -12,7 +12,9 @@ There are 2 ways to run this app solution.
 #### In both ways you need to create a database **before** running the app.
 
 ## Requirements:
+* Windows, but if you are geek enough, you should manage to run this on Linux
 * Download and Install [Xampp](https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe)
+* It is recommended to install xampp in `C:/` Directory
 
 ## How to Run:
 ### For Desktop App: (Recommended)
