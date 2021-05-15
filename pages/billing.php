@@ -59,7 +59,7 @@ if (isset($_POST['payment'])) {
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>Billing</title>
     <!-- MDB icon -->
-    <link rel="icon" href="../img/bracu.ico" type="image/x-icon"/>
+    <link rel="icon" href="elements/img/bracu.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
@@ -68,7 +68,7 @@ if (isset($_POST['payment'])) {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../css/mdb.min.css"/>
+    <link rel="stylesheet" href="elements/css/mdb.min.css"/>
 </head>
 <body>
 
@@ -193,7 +193,7 @@ if (isset($_POST['payment'])) {
     </div>
 </div>
 <!-- MDB -->
-<script type="text/javascript" src="../js/mdb.min.js"></script>
+<script type="text/javascript" src="elements/js/mdb.min.js"></script>
 <!-- Custom scripts -->
 <script type="text/javascript"></script>
 </body>
