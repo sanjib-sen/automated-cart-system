@@ -188,6 +188,11 @@ $run_query = mysqli_query($conn, $sql);
                         <a class="nav-link active" href="cart.php">Go to Cart</a>
                     </li>
                 <?php } ?>
+                <?php if (isset($_POST['create']) || isset($_POST['update'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.php">Back to Products</a>
+                    </li>
+                <?php } ?>
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="login-register.php">Customer
@@ -218,10 +223,11 @@ $run_query = mysqli_query($conn, $sql);
     <div class="d-flex align-items-center h-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-7">
 
-                    <!-- Start your project here-->
-                    <?php if ($action == 'add' || $action == 'delete' || $action == 'product' || $action == "") { ?>
+
+                <!-- Start your project here-->
+                <?php if ($action == 'add' || $action == 'delete' || $action == 'product' || $action == "") { ?>
+                    <div class="col-xl-10">
                         <h1>Products</h1>
                         <?php if ($_SESSION['role'] != 'customer') { ?>
                             <p>
@@ -299,11 +305,13 @@ $run_query = mysqli_query($conn, $sql);
                             <div class="col text-center">
                                 <a class="btn btn-primary" href="cart.php" role="button">Go to Cart</a>
                             </div>
-                        <?php }
-                    } ?>
+                        <?php } ?>
 
+                    </div>
+                <?php } ?>
+                <?php if ($action == 'update' || $action == 'create') { ?>
+                    <div class="col-xl-4">
 
-                    <?php if ($action == 'update' || $action == 'create') { ?>
                         <form action="products.php" method="POST" enctype="multipart/form-data">
 
                             <?php if ($action == 'update') { ?>
@@ -318,7 +326,7 @@ $run_query = mysqli_query($conn, $sql);
                                      alt="<?php echo $product['name'] ?? "" ?>"
                                      class="product-img" height="40" width="60">
                             <?php endif; ?>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-4">
                                 <label class="input-group-text" for="image">Image</label>
                                 <input type="file" id="image" class="form-control" name="image"
                                        aria-describedby="inputGroupFileAddon03"
@@ -369,9 +377,15 @@ $run_query = mysqli_query($conn, $sql);
                             <?php endif; ?>
                             <input type="submit" class="btn btn-primary btn-block mb-4"/>
                         </form>
-                    <?php } ?>
+                        <br>
 
-                </div>
+                        <div class="col text-center">
+                            <a class="btn btn-primary" href="products.php" role="button">Back to Products</a>
+                        </div>
+                    </div>
+
+                <?php } ?>
+
             </div>
         </div>
     </div>

@@ -99,7 +99,7 @@ if (isset($_POST['Username'])) {
     <div class="d-flex align-items-center h-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-7">
+                <div class="col-xl-4">
 
 
                     <?php if (isset($_POST['Username']) && !$loginsucces) { ?>
