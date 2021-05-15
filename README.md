@@ -4,7 +4,7 @@ A database Project for CSE370 Course
 
 ## How to Run:
 
-1. Download the zip file and extract it.
+1. Git Clone this Repository or Download the zip file and extract it.
 2. Rename the `Project-ShoppingCart` folder as your wish. For example: `bracu-mart`
 3. Copy the folder to `C:/xampp/htdocs` directory.
 4. Open **Xampp** start `Apache` and `MySQL` Server.
