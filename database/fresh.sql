@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2021 at 11:21 AM
+-- Generation Time: May 15, 2021 at 04:10 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,31 +32,6 @@ CREATE TABLE `added_to` (
   `cart_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `added_to`
---
-
-INSERT INTO `added_to` (`product_id`, `cart_id`, `quantity`) VALUES
-(16, 1, 2),
-(16, 2, 1),
-(16, 3, 2),
-(16, 4, 1),
-(16, 5, 2),
-(16, 6, 1),
-(16, 7, 2),
-(16, 8, 2),
-(16, 9, 4),
-(16, 10, 4),
-(16, 11, 52),
-(16, 12, 7),
-(24, 2, 4),
-(24, 5, 3),
-(24, 7, 3),
-(24, 8, 11),
-(24, 10, 10),
-(24, 12, 1),
-(30, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -87,22 +62,6 @@ CREATE TABLE `billing` (
   `bill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `billing`
---
-
-INSERT INTO `billing` (`made_for`, `bill_id`) VALUES
-(2, 24),
-(3, 25),
-(4, 26),
-(5, 27),
-(6, 28),
-(7, 29),
-(8, 30),
-(10, 31),
-(11, 32),
-(12, 33);
-
 -- --------------------------------------------------------
 
 --
@@ -114,22 +73,6 @@ CREATE TABLE `bills` (
   `bill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `bills`
---
-
-INSERT INTO `bills` (`customer_id`, `bill_id`) VALUES
-(14, 24),
-(14, 25),
-(14, 26),
-(14, 27),
-(15, 28),
-(15, 29),
-(16, 30),
-(17, 31),
-(17, 32),
-(17, 33);
-
 -- --------------------------------------------------------
 
 --
@@ -139,24 +82,6 @@ INSERT INTO `bills` (`customer_id`, `bill_id`) VALUES
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cart_id`) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10),
-(11),
-(12);
 
 -- --------------------------------------------------------
 
@@ -172,16 +97,6 @@ CREATE TABLE `customer` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`customer_id`, `name`, `phone_no`, `join_date`, `password`) VALUES
-(14, 'Sanjib Kumar Sen', '1', '2021-05-08 14:54:14', '1'),
-(15, 'Sanjib Kumar Sen', '01706968232', '2021-05-08 17:43:49', '12345'),
-(16, 'Afroza', '111222', '2021-05-08 17:55:05', '12'),
-(17, 'Andromeda Galaxy', '017', '2021-05-08 18:23:02', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -192,22 +107,6 @@ CREATE TABLE `does` (
   `bill_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `does`
---
-
-INSERT INTO `does` (`bill_id`, `customer_id`) VALUES
-(24, 14),
-(25, 14),
-(26, 14),
-(27, 14),
-(28, 15),
-(29, 15),
-(30, 16),
-(31, 17),
-(32, 17),
-(33, 17);
 
 -- --------------------------------------------------------
 
@@ -220,13 +119,6 @@ CREATE TABLE `manages` (
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `manages`
---
-
-INSERT INTO `manages` (`user_id`, `product_id`) VALUES
-('sanjib', 30);
-
 -- --------------------------------------------------------
 
 --
@@ -237,22 +129,6 @@ CREATE TABLE `payment` (
   `bill_id` int(11) NOT NULL,
   `payment_method` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`bill_id`, `payment_method`) VALUES
-(24, 'nagad'),
-(25, 'rocket'),
-(26, 'bkash'),
-(27, 'card'),
-(28, 'nagad'),
-(29, 'cash'),
-(30, 'nagad'),
-(31, 'nagad'),
-(32, 'cash'),
-(33, 'card');
 
 -- --------------------------------------------------------
 
@@ -270,15 +146,6 @@ CREATE TABLE `products` (
   `stock` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `image`, `category`, `stock`) VALUES
-(16, 'Dell Laptop', 'core i5, 4 GB RAM', '1000', '0_sHL6zZcjCuVoSHy9.jfif60958ce01213c3.42073781', 'Tech', 50),
-(24, 'Catto', 'Nice cat', '12', '87170886_544910046118068_4566536806815760384_n.jpg60968c233a29d8.75904110', 'Pet', 12),
-(30, 'Hiii', 'Ok', '122', '182404023_4152483094802995_4202213613729721194_n.jpg6096bbe408f2c9.48752302', 'Pet', 12);
-
 -- --------------------------------------------------------
 
 --
@@ -289,16 +156,6 @@ CREATE TABLE `register` (
   `customer_id` int(11) NOT NULL,
   `user_id` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `register`
---
-
-INSERT INTO `register` (`customer_id`, `user_id`) VALUES
-(14, 'sanjib'),
-(15, 'sanjib'),
-(16, 'sanjib'),
-(17, 'sanjib');
 
 --
 -- Indexes for dumped tables
@@ -347,7 +204,8 @@ ALTER TABLE `customer`
 -- Indexes for table `does`
 --
 ALTER TABLE `does`
-  ADD PRIMARY KEY (`bill_id`) USING BTREE;
+  ADD PRIMARY KEY (`bill_id`) USING BTREE,
+  ADD KEY `Customer` (`customer_id`);
 
 --
 -- Indexes for table `manages`
@@ -372,7 +230,8 @@ ALTER TABLE `products`
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
-  ADD PRIMARY KEY (`customer_id`,`user_id`);
+  ADD PRIMARY KEY (`customer_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
