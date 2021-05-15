@@ -11,7 +11,10 @@ There are 2 ways to run this app solution.
 
 #### In both ways you need to create a database **before** running the app.
 
-## How to Run
+## Requirements:
+* Download and Install [Xampp](https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe)
+
+## How to Run:
 ### For Desktop App: (Recommended)
 1. Download [this zip file](https://github.com/sanjib-sen/Project-ShoppingCart/releases/download/0.01/BRACU.Mart.zip).
 2. Extract it.
@@ -29,7 +32,7 @@ There are 2 ways to run this app solution.
    * **Username:** `sanjib`
    * **Password:** `1234`
 
-## Create Database
+## Create Database:
 1. Open **Xampp** start `Apache` and `MySQL` Server.
 2. Visit `localhost/phpmyadmin` with your browser and create a new database named `project` .
 3. Import Database.
