@@ -22,6 +22,9 @@ There are 2 ways to run this app solution.
 2. Extract it.
 3. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database)
 4. Open `BRACU Mart.exe`.
+5. Login with this Admin Credentials:
+    * **Username:** `sanjib`
+    * **Password:** `1234`
 
 ### For Web App:
 1. Git Clone this Repository or Download the zip file and extract it.
