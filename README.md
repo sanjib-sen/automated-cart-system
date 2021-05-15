@@ -79,3 +79,29 @@ There are 2 ways to run this app solution.
 * Customer Registration, Login and Logout.
 * Customer Profile Information and Billing History.
 * Customer Reset Password.
+
+## Screenshots
+
+#### Index Page:
+![Index Page](screenshots/index.png)
+
+#### Customer Login:
+![Login Page](screenshots/login.png)
+
+#### Products:
+![Product Page](screenshots/products.png)
+
+#### Update Product:
+![Product Update](screenshots/update.png)
+
+#### Cart:
+![Cart Page](screenshots/cart.png)
+
+#### Billing:
+![Bill Page](screenshots/billing.png)
+
+#### Customer Info:
+![Customer Info](screenshots/customer.png)
+
+#### About Page:
+![About Page](screenshots/about.png)
