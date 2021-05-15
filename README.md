@@ -9,7 +9,7 @@ There are 2 ways to run this app solution.
 * As a Web-Server (Requiring a Browser)
 * As a Desktop App (An executable file for Windows)
 
-#### In both ways you need to create a database **before** running the app.
+#### In both ways you need to [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database) **before** running the app.
 
 ## Requirements:
 * Windows, but if you are geek enough, you should manage to run this on Linux
