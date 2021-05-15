@@ -191,7 +191,7 @@ $run_query = mysqli_query($conn, $sql);
                 <?php if ($_SESSION['role'] == 'admin') { ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="login-register.php">Customer
-                            Registration</a>
+                            Login</a>
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
@@ -291,9 +291,16 @@ $run_query = mysqli_query($conn, $sql);
                                 </tbody>
                             </table>
                         </div>
-                    <?php } ?>
 
 
+                        <?php if (isset($_SESSION['cart_count'])) { ?>
+                            <br>
+                            <br>
+                            <div class="col text-center">
+                                <a class="btn btn-primary" href="cart.php" role="button">Go to Cart</a>
+                            </div>
+                        <?php }
+                    } ?>
 
 
                     <?php if ($action == 'update' || $action == 'create') { ?>
@@ -363,7 +370,6 @@ $run_query = mysqli_query($conn, $sql);
                             <input type="submit" class="btn btn-primary btn-block mb-4"/>
                         </form>
                     <?php } ?>
-
 
                 </div>
             </div>

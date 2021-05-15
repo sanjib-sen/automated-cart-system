@@ -77,18 +77,15 @@ if (isset($_POST['Username'])) {
                         <a class="nav-link active" aria-current="page" href="login-register.php">Customer-Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products.php">Products</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout-admin.php">Logout</a>
-                    </li>
-                <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link" href="logout-admin.php">Logout-Admin</a>
                     </li>
                 <?php } ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.php">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
             </ul>
             <!-- Left links -->
         </div>

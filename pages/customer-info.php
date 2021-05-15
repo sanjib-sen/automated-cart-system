@@ -176,15 +176,10 @@ $bill_query = mysqli_query($conn, $sql_bills);
                         <?php } ?>
                     </table>
 
-
-                    <div class="justify-content-center">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">
-                            Go Shopping
-
+                    <br>
+                    <br>
+                    <div class="col text-center">
+                        <a class="btn btn-primary" href="products.php" role="button">Shop More</a>
                     </div>
 
 

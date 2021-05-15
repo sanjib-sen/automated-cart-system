@@ -31,13 +31,10 @@ if (isset($_POST['payment'])) {
     $does_count = mysqli_num_rows($run_does_count);
 
     if ($does_count != 0) {
-
-
         $sql_2 = "SELECT * FROM does ORDER BY bill_id DESC LIMIT 1";
         $run_2 = mysqli_query($conn, $sql_2);
         $fetch = $run_2->fetch_assoc();
         $bill_id = $fetch['bill_id'];
-
     }
 
     $sql_insert_bills = "INSERT INTO bills (bill_id, customer_id) VALUES ('$bill_id','$customer_id')";
@@ -101,19 +98,15 @@ if (isset($_POST['payment'])) {
                         <a class="nav-link active" href="cart.php">Go to Cart</a>
                     </li>
                 <?php } ?>
-                <?php if ($_SESSION['role'] == 'admin') { ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="login-register.php">Customer
-                            Registration</a>
-                    </li>
-                <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="customer-info.php">Customer Info</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
-                    </li>
-                <?php } ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.php">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="customer-info.php">Customer Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout-customer.php">Logout-Customer</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout-admin.php">Logout-Admin</a>
                 </li>
@@ -162,12 +155,6 @@ if (isset($_POST['payment'])) {
                             <td>
                                 <?php if (isset($_POST['payment'])) {
                                     echo $_POST['payment']; ?>
-                                    <form action="logout-customer.php" method="post">
-                                        <br>
-                                        <input type="submit" class="btn-outline-success"
-                                               value="Logout">
-                                    </form>
-
                                 <?php } else { ?>
                                     <form action="billing.php" method="post">
                                         <label for="method"></label>
@@ -190,17 +177,14 @@ if (isset($_POST['payment'])) {
                     </table>
 
                     <?php if (isset($_POST['payment'])) { ?>
-                        <div class="justify-content-center">
-                            <button type="button" class="btn btn-primary btn-rounded"
-                                    onclick=location.href="products.php">
-                                Go Shopping
+                        <div class="col text-center">
+                            <a class="btn btn-primary" href="products.php" role="button">Shop More</a>
+                            <a class="btn btn-danger" href="logout-customer.php" role="button">Logout</a>
                         </div>
                     <?php } else { ?>
-                        <div class="justify-content-center">
-                            <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="cart.php">
-                                Go Back to Cart
+                        <div class="col text-center">
+                            <a class="btn btn-primary" href="cart.php" role="button">Go Back to Cart</a>
                         </div>
-
                     <?php } ?>
                     <!-- End your project here-->
                 </div>
