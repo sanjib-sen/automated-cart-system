@@ -15,14 +15,14 @@ There are 2 ways to run this app solution.
 ### For Desktop App: (Recommended)
 1. Download [this zip file](https://github.com/sanjib-sen/Project-ShoppingCart/releases/download/0.01/BRACU.Mart.zip).
 2. Extract it.
-3. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#how-to-run)
+3. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database)
 4. Open `BRACU Mart.exe`.
 
 ### For Web App:
 1. Git Clone this Repository or Download the zip file and extract it.
 2. Rename the `Project-ShoppingCart` folder as your wish. For example: `bracu-mart`
 3. Copy the folder to `C:/xampp/htdocs` directory.
-4. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#how-to-run)
+4. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database)
 5. Now with your browser visit:
    `localhost/<your-folder-name>` e.g. `localhost/bracu-mart`
 6. Login with this Admin Credentials:
