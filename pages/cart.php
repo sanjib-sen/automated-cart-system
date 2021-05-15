@@ -22,7 +22,7 @@ if (isset($_POST['add'])) {
 
 }
 
-if (isset($_POST['action']) && $_POST['action']=='Remove') {
+if (isset($_POST['action']) && $_POST['action'] == 'Remove') {
     $product_id_here = $_POST['product_id'];
 
     $sql_update = "DELETE FROM added_to  WHERE (cart_id = $cart_id AND product_id= $product_id_here)";
@@ -57,28 +57,34 @@ $bill = 0;
     <link rel="stylesheet" href="../css/mdb.min.css"/>
 
     <style>
-        .pannel-head{
-            text-align: center; background-color: #93DB70; width:100%;
-            color:white;
-            height:40px;
-            padding-top:2px;
+        .pannel-head {
+            text-align: center;
+            background-color: #93DB70;
+            width: 100%;
+            color: white;
+            height: 40px;
+            padding-top: 2px;
             border-radius: 5px;
         }
-        .ncol-2{
+
+        .ncol-2 {
             padding: 8px;
-            width:15%;
-            float:left;
+            width: 15%;
+            float: left;
         }
-        .ncol-8{
+
+        .ncol-8 {
             padding: 10px;
-            width:70%;
-            float:left;
+            width: 70%;
+            float: left;
         }
-        .ncol-12{
+
+        .ncol-12 {
             padding: 10px;
-            width:100%;
-            float:left;
+            width: 100%;
+            float: left;
         }
+
         .nrow::after {
             content: "";
             display: table;
@@ -146,19 +152,19 @@ $bill = 0;
 
                     <!-- Start your project here-->
                     <h1 class="mb-3 text-center">Cart for <?php echo $customer['name'] ?> </h1>
-<!--                    <div class="table-responsive">-->
-                        <table id="cart" class="table table-hover table-condensed">
-                            <thead>
-                            <tr>
-                                <th style="width:50%">Product</th>
-                                <th style="width:10%">Price</th>
-                                <th style="width:8%">Quantity</th>
-                                <th style="width:22%" class="text-center">Subtotal</th>
-                                <th style="width:10%"> Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php while ($item = $products_query->fetch_assoc()) {
+                    <!--                    <div class="table-responsive">-->
+                    <table id="cart" class="table table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th style="width:50%">Product</th>
+                            <th style="width:10%">Price</th>
+                            <th style="width:8%">Quantity</th>
+                            <th style="width:22%" class="text-center">Subtotal</th>
+                            <th style="width:10%"> Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php while ($item = $products_query->fetch_assoc()) {
                             $product_id = $item['product_id'];
                             $sql_product = "SELECT * FROM products WHERE product_id = '$product_id'";
                             $product_query = mysqli_query($conn, $sql_product);
@@ -167,9 +173,10 @@ $bill = 0;
                             <tr>
                                 <td data-th="Product">
                                     <div class="row">
-                                        <div class="col-sm-2 hidden-xs"><img src="../uploads/<?php echo $product['image'] ?>"
-                                                                             alt="<?php echo $product['name'] ?>" height="20"
-                                                                             width="30" class="img-responsive"/></div>
+                                        <div class="col-sm-2 hidden-xs"><img
+                                                    src="../uploads/<?php echo $product['image'] ?>"
+                                                    alt="<?php echo $product['name'] ?>" height="20"
+                                                    width="30" class="img-responsive"/></div>
                                         <div class="col-sm-10">
                                             <h4 class="nomargin"><?php echo $product['name'] ?></h4>
                                             <p><?php echo $product['description'] ?></p>
@@ -178,45 +185,51 @@ $bill = 0;
                                 </td>
                                 <td data-th="Price"><?php echo $product['price'] ?></td>
                                 <td data-th="Quantity">
-                                    <form action="cart.php" method="post" >
-                                    <input type="hidden" name="product_id"
-                                           value="<?php echo $product['product_id'] ?>">
-                                    <input type="number" class="form-control text-center" value="<?php echo $item['quantity'] ?>" name="quantity">
-                                    <input type="submit" class="btn btn-primary" value="change"
-                                           name="add" required/>
+                                    <form action="cart.php" method="post">
+                                        <input type="hidden" name="product_id"
+                                               value="<?php echo $product['product_id'] ?>">
+                                        <input type="number" class="form-control text-center"
+                                               value="<?php echo $item['quantity'] ?>" name="quantity">
+                                        <input type="submit" class="btn btn-primary" value="change"
+                                               name="add" required/>
                                     </form>
                                 </td>
-                                <td data-th="Subtotal" class="text-center"><?php echo($item['quantity'] * $product['price']);
+                                <td data-th="Subtotal"
+                                    class="text-center"><?php echo($item['quantity'] * $product['price']);
                                     $bill += ($item['quantity'] * $product['price']);
-                                    $_SESSION['bill'] =$bill;?>
+                                    $_SESSION['bill'] = $bill; ?>
                                 </td>
                                 <td class="actions" data-th="">
                                     <form action="cart.php" method="post">
                                         <input type="hidden" name="product_id"
                                                value="<?php echo $product['product_id'] ?>">
-                                        <input type="submit" class="btn btn-danger btn-sm px-3" name="action" value="Remove">
+                                        <input type="submit" class="btn btn-danger btn-sm px-3" name="action"
+                                               value="Remove">
                                     </form>
                                 </td>
                             </tr>
-                            <?php } ?>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td><a href="products.php" class="btn btn-warning"><i class="fa fa-angle-left"></i>Go Back</a></td>
-                                <td colspan="2" class="hidden-xs"></td>
-                                <td class="hidden-xs text-center"><strong><?php echo "Total Bill:   ", $bill; ?></strong></td>
-                               <?php if ($bill!=0) {?>
-                                <td><a href="billing.php" class="btn btn-success btn-block">Procced To Bill <i class="fa fa-angle-right"></i></a>
+                        <?php } ?>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td><a href="products.php" class="btn btn-warning"><i class="fa fa-angle-left"></i>Go
+                                    Back</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong><?php echo "Total Bill:   ", $bill; ?></strong>
+                            </td>
+                            <?php if ($bill != 0) { ?>
+                                <td><a href="billing.php" class="btn btn-success btn-block">Procced To Bill <i
+                                                class="fa fa-angle-right"></i></a>
                                 </td>
-                                <?php } ?>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                            <?php } ?>
+                        </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <!-- MDB -->
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 <!-- Custom scripts -->

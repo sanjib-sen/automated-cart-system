@@ -8,7 +8,7 @@ $conn = new mysqli($host, $dbUsrname, $dbPassword, $dbname);
 
 $label = '';
 
-$action ="";
+$action = "";
 
 session_start();
 
@@ -16,28 +16,27 @@ if (isset($_POST['product_id'])) {
     $product_id = $_POST['product_id'];
 }
 
-if (isset($_POST['add']) && $_SESSION['role']=='customer') {
+if (isset($_POST['add']) && $_SESSION['role'] == 'customer') {
     $action = "add";
     $sql_cart_count = "SELECT * FROM cart";
     $run_cart_count = mysqli_query($conn, $sql_cart_count);
     $cart_count = mysqli_num_rows($run_cart_count);
 
-    if($cart_count!=0) {
+    if ($cart_count != 0) {
         $sql_2 = "SELECT * FROM cart ORDER BY cart_id DESC LIMIT 1";
         $run_2 = mysqli_query($conn, $sql_2);
         $fetch = $run_2->fetch_assoc();
         $cart_count = $fetch['cart_id'];
     }
-    if(!isset($_SESSION['cart_count'])){
-        $_SESSION['cart_count']=$cart_count+1;
-        $cart_id =$cart_count+1;
-    }
-    else{
-        $cart_id= $_SESSION['cart_count'];
+    if (!isset($_SESSION['cart_count'])) {
+        $_SESSION['cart_count'] = $cart_count + 1;
+        $cart_id = $cart_count + 1;
+    } else {
+        $cart_id = $_SESSION['cart_count'];
     }
 
 
-    if($cart_id>$cart_count) {
+    if ($cart_id > $cart_count) {
         $sql_create = "INSERT INTO cart (cart_id) VALUES ('$cart_id')";
         $run_query_create = mysqli_query($conn, $sql_create);
     }
@@ -45,20 +44,18 @@ if (isset($_POST['add']) && $_SESSION['role']=='customer') {
     $run_product_count = mysqli_query($conn, $sql_product_count);
     $product_count = mysqli_num_rows($run_product_count);
 
-    if($product_count>0){
+    if ($product_count > 0) {
         $data = $run_product_count->fetch_assoc();
-        $quantity_more = $data['quantity']+1;
+        $quantity_more = $data['quantity'] + 1;
         $sql_update = "UPDATE added_to SET quantity ='$quantity_more' WHERE (cart_id = $cart_id AND product_id= $product_id)";
         $run_update = mysqli_query($conn, $sql_update);
         $label = "Increased Quantity +1 = $quantity_more";
-    }
-    else {
+    } else {
         $sql_add = "INSERT INTO added_to (product_id, cart_id, quantity) VALUES ('$product_id','$cart_id', 1)";
         $run_add = mysqli_query($conn, $sql_add);
         $label = "Added to Cart";
     }
 }
-
 
 
 if (isset($_POST['update'])) {
@@ -90,7 +87,6 @@ if (isset($_POST['delete'])) {
 }
 
 
-
 if (isset($_POST['product'])) {
     $action = "product";
     $title = mysqli_real_escape_string($conn, $_POST['title']);
@@ -100,12 +96,12 @@ if (isset($_POST['product'])) {
     $category = mysqli_real_escape_string($conn, $_POST['category']);
 
 
-    if(!$_FILES['image']['name']==""){
+    if (!$_FILES['image']['name'] == "") {
         $filename = (uniqid($_FILES['image']['name'], true));
         move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $filename);
     }
 
-    if ($_POST['product']=='registered'){
+    if ($_POST['product'] == 'registered') {
         $sql_create = "INSERT INTO products (name,description, price, image, stock, category) VALUES ('$title','$description','$price','$filename', '$stock', '$category')";
         $run_query_create = mysqli_query($conn, $sql_create);
 
@@ -118,12 +114,12 @@ if (isset($_POST['product'])) {
         $run_query3 = mysqli_query($conn, $sql3);
         $label = 'Product Registered.';
     }
-    if ($_POST['product']=='updated'){
+    if ($_POST['product'] == 'updated') {
 
         $product_id = $_POST['product_id'];
         $sql_update = "UPDATE products SET name='$title',description='$description',price='$price',stock='$stock',category='$category' WHERE product_id = '$product_id'";
         $run_query_update = mysqli_query($conn, $sql_update);
-        if(isset($filename) && !$filename==""){
+        if (isset($filename) && !$filename == "") {
             $pro_sql = "SELECT * FROM products where product_id=$product_id";
             $run_query_pro = mysqli_query($conn, $pro_sql);
             $fetchpro = $run_query_pro->fetch_assoc();
@@ -134,7 +130,7 @@ if (isset($_POST['product'])) {
             $sql_image_update = "UPDATE products SET image='$filename' WHERE product_id = '$product_id'";
             $run_query_update_image = mysqli_query($conn, $sql_image_update);
         }
-        $label='Product Updated';
+        $label = 'Product Updated';
     }
 }
 
@@ -187,7 +183,7 @@ $run_query = mysqli_query($conn, $sql);
         <div class="collapse navbar-collapse " id="navbarRightAlignExample">
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <?php if (isset($_SESSION['cart_count'])){ ?>
+                <?php if (isset($_SESSION['cart_count'])) { ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="cart.php">Go to Cart</a>
                     </li>
@@ -218,7 +214,6 @@ $run_query = mysqli_query($conn, $sql);
 <!-- Navbar -->
 
 
-
 <div class="border border-0 p-5">
     <div class="d-flex align-items-center h-100">
         <div class="container">
@@ -226,70 +221,76 @@ $run_query = mysqli_query($conn, $sql);
                 <div class="col-xl-7">
 
                     <!-- Start your project here-->
-                    <?php if ($action=='add' || $action=='delete' || $action=='product' || $action=="")  { ?>
-                    <h1>Products</h1>
-                    <?php if ($_SESSION['role']!='customer') { ?>
-                    <p>
+                    <?php if ($action == 'add' || $action == 'delete' || $action == 'product' || $action == "") { ?>
+                        <h1>Products</h1>
+                        <?php if ($_SESSION['role'] != 'customer') { ?>
+                            <p>
 
-                        <form action="products.php" method="post">
+                            <form action="products.php" method="post">
                                 <input type="hidden" name="create" value="update">
                                 <input type="submit" class="btn btn-sm btn-success" value="Add Product">
                             </form>
-<!--                        <a href="products.php" type="button" class="btn btn-sm btn-success">Add Product</a>-->
+                            <!--                        <a href="products.php" type="button" class="btn btn-sm btn-success">Add Product</a>-->
 
-                    </p>
+                            </p>
 
-                    <?php } ?>
-
-
-                    <?php if(!$action=='') {?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $label ?>
-                    </div>
-                    <?php }?>
+                        <?php } ?>
 
 
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php while ($product = $run_query->fetch_assoc()) { ?>
+                        <?php if (!$action == '') { ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $label ?>
+                            </div>
+                        <?php } ?>
+
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
                                 <tr>
-                                    <td>
-                                        <?php if ($product['image']): ?>
-                                            <img src="../uploads/<?php echo $product['image'] ?>"
-                                                 alt="<?php echo $product['name'] ?>" class="product-img" height="20"
-                                                 width="30">
-                                        <?php endif; ?>
-                                    </td>
-                                    <td><?php echo $product['name'] ?></td>
-                                    <td><?php echo $product['price'] ?></td>
-                                    <td><?php echo $product['stock'] ?></td>
-                                    <td><?php echo $product['category'] ?></td>
-                                    <td> <form action="products.php" method="post">
-                                            <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
-                                            <?php if($_SESSION['role']=='customer') { ?>
-                                                <input type="submit" class="btn btn-primary"  value="add" name="add" required/> <?php  } ?>
-                                            <?php if($_SESSION['role']!='customer') { ?>
-                                                <input type="submit" class="btn btn-secondary" value="Edit" name="update" required/>
-                                                <input type="submit" class="btn btn-danger" value="Delete" name="delete" required/>
-                                            <?php  } ?>
-                                        </form>
-                                    </td>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Action</th>
                                 </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                <?php while ($product = $run_query->fetch_assoc()) { ?>
+                                    <tr>
+                                        <td>
+                                            <?php if ($product['image']): ?>
+                                                <img src="../uploads/<?php echo $product['image'] ?>"
+                                                     alt="<?php echo $product['name'] ?>" class="product-img"
+                                                     height="20"
+                                                     width="30">
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><?php echo $product['name'] ?></td>
+                                        <td><?php echo $product['price'] ?></td>
+                                        <td><?php echo $product['stock'] ?></td>
+                                        <td><?php echo $product['category'] ?></td>
+                                        <td>
+                                            <form action="products.php" method="post">
+                                                <input type="hidden" name="product_id"
+                                                       value="<?php echo $product['product_id'] ?>">
+                                                <?php if ($_SESSION['role'] == 'customer') { ?>
+                                                    <input type="submit" class="btn btn-primary" value="add" name="add"
+                                                           required/> <?php } ?>
+                                                <?php if ($_SESSION['role'] != 'customer') { ?>
+                                                    <input type="submit" class="btn btn-secondary" value="Edit"
+                                                           name="update" required/>
+                                                    <input type="submit" class="btn btn-danger" value="Delete"
+                                                           name="delete" required/>
+                                                <?php } ?>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php } ?>
 
 
@@ -298,15 +299,16 @@ $run_query = mysqli_query($conn, $sql);
                     <?php if ($action == 'update' || $action == 'create') { ?>
                         <form action="products.php" method="POST" enctype="multipart/form-data">
 
-                            <?php if($action=='update'){ ?>
-                            <p class="text-center fw-bold ">Update Product</p>
+                            <?php if ($action == 'update') { ?>
+                                <p class="text-center fw-bold ">Update Product</p>
                             <?php } else { ?>
                                 <p class="text-center fw-bold ">Register Product</p>
                             <?php } ?>
 
                             <!--          Image Input-->
                             <?php if ($product['image'] ?? ""): ?>
-                                <img src="../uploads/<?php echo $product['image'] ?? "" ?>" alt="<?php echo $product['name'] ?? "" ?>"
+                                <img src="../uploads/<?php echo $product['image'] ?? "" ?>"
+                                     alt="<?php echo $product['name'] ?? "" ?>"
                                      class="product-img" height="40" width="60">
                             <?php endif; ?>
                             <div class="input-group mb-3">
@@ -318,14 +320,16 @@ $run_query = mysqli_query($conn, $sql);
 
                             <!-- Name input -->
                             <div class="form-outline mb-4">
-                                <input type="text" name="title" class="form-control" value="<?php echo $product['name'] ?? "" ?>"
+                                <input type="text" name="title" class="form-control"
+                                       value="<?php echo $product['name'] ?? "" ?>"
                                        required/>
                                 <label class="form-label" for="title">Name</label>
                             </div>
 
                             <!-- Phone input -->
                             <div class="form-outline mb-4">
-                                <input type="text" name="description" value="<?php echo $product['description'] ?? "" ?>"
+                                <input type="text" name="description"
+                                       value="<?php echo $product['description'] ?? "" ?>"
                                        class="form-control" required height=""/>
                                 <label class="form-label" for="description">Description</label>
                             </div>
@@ -350,15 +354,15 @@ $run_query = mysqli_query($conn, $sql);
                             </div>
 
                             <!-- Submit button -->
-                            <input type="hidden" name="product" value="<?php if($action=='update') echo"updated"; else echo "registered"; ?>">
-                            <?php if($action=='update'): ?>
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?? "" ?>">
+                            <input type="hidden" name="product"
+                                   value="<?php if ($action == 'update') echo "updated"; else echo "registered"; ?>">
+                            <?php if ($action == 'update'): ?>
+                                <input type="hidden" name="product_id"
+                                       value="<?php echo $product['product_id'] ?? "" ?>">
                             <?php endif; ?>
-                            <input type="submit" class="btn btn-primary btn-block mb-4" />
+                            <input type="submit" class="btn btn-primary btn-block mb-4"/>
                         </form>
                     <?php } ?>
-
-
 
 
                 </div>

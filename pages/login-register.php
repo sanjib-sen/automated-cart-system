@@ -184,11 +184,12 @@ if (isset($_POST['cuslogin'])) {
 
                     <?php if (isset($loginsucces) && isset($loginsucces) && $loginsucces && $login) { ?>
 
-                    <form name="myform" method="post" action="products.php">
-                        <input type="hidden" name="fromlogin" value="Login Successful">
-                        <script language="JavaScript">document.myform.submit();</script></form>
+                        <form name="myform" method="post" action="products.php">
+                            <input type="hidden" name="fromlogin" value="Login Successful">
+                            <script language="JavaScript">document.myform.submit();</script>
+                        </form>
 
-                   <?php } ?>
+                    <?php } ?>
 
 
                     <?php if (isset($loginsucces) && isset($loginsucces) && !$loginsucces && $login) { ?>

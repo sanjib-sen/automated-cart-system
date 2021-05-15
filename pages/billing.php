@@ -21,7 +21,7 @@ $current_year = (int)substr(date('Y-m-d H:i:s'), 2, 2);
 $offer = ((($current_year - $year) * 10) + 1) / 100;
 
 
-if(isset($_POST['payment'])){
+if (isset($_POST['payment'])) {
     $pay_label = $_POST['payment'];
     $sql_add_bill = "INSERT INTO does (customer_id) VALUES ('$customer_id')";
     $run_query_1 = mysqli_query($conn, $sql_add_bill);
@@ -30,7 +30,7 @@ if(isset($_POST['payment'])){
     $run_does_count = mysqli_query($conn, $sql_does_count);
     $does_count = mysqli_num_rows($run_does_count);
 
-    if($does_count!=0) {
+    if ($does_count != 0) {
 
 
         $sql_2 = "SELECT * FROM does ORDER BY bill_id DESC LIMIT 1";
@@ -181,7 +181,7 @@ if(isset($_POST['payment'])){
                                         <br>
                                         <br>
                                         <input type="submit" class="btn-outline-success"
-                                               value="Pay <?php echo $bills?> BDT">
+                                               value="Pay <?php echo $bills ?> BDT">
                                     </form>
                                 <?php } ?>
                             </td>
@@ -189,19 +189,20 @@ if(isset($_POST['payment'])){
                         </tbody>
                     </table>
 
-        <?php if (isset($_POST['payment'])) { ?>
-                    <div class="justify-content-center">
-                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="products.php">
-                            Go Shopping
-                    </div>
-                <?php } else { ?>
-                    <div class="justify-content-center">
-                        <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="cart.php">
-                           Go Back to Cart
-                    </div>
+                    <?php if (isset($_POST['payment'])) { ?>
+                        <div class="justify-content-center">
+                            <button type="button" class="btn btn-primary btn-rounded"
+                                    onclick=location.href="products.php">
+                                Go Shopping
+                        </div>
+                    <?php } else { ?>
+                        <div class="justify-content-center">
+                            <button type="button" class="btn btn-primary btn-rounded" onclick=location.href="cart.php">
+                                Go Back to Cart
+                        </div>
 
                     <?php } ?>
-    <!-- End your project here-->
+                    <!-- End your project here-->
                 </div>
             </div>
         </div>
