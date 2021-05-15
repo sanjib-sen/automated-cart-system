@@ -17,3 +17,8 @@ A database Project for CSE370 Course
 
 7. Now with your browser visit:
    `localhost/<your-folder-name>` e.g. `localhost/bracu-mart`
+
+8. Login with this Admin Credentials:
+    * **Username:** `sanjib`
+    * **Password:** `1234`
+   
