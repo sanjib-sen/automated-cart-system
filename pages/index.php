@@ -35,9 +35,9 @@ if (isset($_POST['Username'])) {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>BRACU MART</title>
+    <title>Admin Dashboard</title>
     <!-- MDB icon -->
-    <link rel="icon" href="../img/mdb-favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="../img/bracu.ico" type="image/x-icon"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
@@ -72,7 +72,7 @@ if (isset($_POST['Username'])) {
             <!-- Left links -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                <?php if ($loginsucces) { ?>
+                <?php if (isset($_SESSION['admin-id'])) { ?>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="login-register.php">Customer-Login</a>
                 </li>
@@ -86,7 +86,7 @@ if (isset($_POST['Username'])) {
                 </li>
                 <?php } else{ ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                 </li>
                 <?php } ?>
             </ul>
@@ -113,7 +113,7 @@ if (isset($_POST['Username'])) {
                 </div>
                 <?php } ?>
 
-                <?php if (!isset($_POST['Username']) || (isset($_POST['Username']) && !$loginsucces) ){ ?>
+                <?php if (!isset($_SESSION['admin-id']) || (isset($_POST['Username']) && !$loginsucces) ){ ?>
 
                 <h1 class="mb-3 text-center">Admin Login</h1>
                 <form method="post" action="index.php">
@@ -142,7 +142,9 @@ if (isset($_POST['Username'])) {
                 <div class="alert alert-success" role="alert">
                     Login Successful
                 </div>
+                <?php } ?>
 
+                <?php if (isset($_SESSION['admin-id'])) { ?>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card">
