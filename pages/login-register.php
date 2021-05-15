@@ -21,14 +21,7 @@ if (isset($_POST['cusreg'])) {
     $name = mysqli_real_escape_string($conn, $_POST['registerName']);
     $phone = mysqli_real_escape_string($conn, $_POST['registerNumber']);
     $pass = mysqli_real_escape_string($conn, $_POST['registerPassword']);
-    $repass = mysqli_real_escape_string($conn, $_POST['RepeatPassword']);
-    if ($pass !== $repass) {
-//		echo"Password didn't match";
-        $login = false;
-        $regsucces = false;
-        $label = "Password didn't match";
-//        exit();
-    }
+
     $date = date('Y-m-d H:i:s');
     $sql = "SELECT customer_id FROM customer WHERE phone_no = '$phone'";
     $check_query = mysqli_query($conn, $sql);
