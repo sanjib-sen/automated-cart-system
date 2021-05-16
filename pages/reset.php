@@ -97,8 +97,8 @@ if (isset($_POST['reset'])) {
 
 <script>
     function onChange() {
-        const password = document.querySelector('input[name=registerPassword]');
-        const confirm = document.querySelector('input[name=RepeatPassword]');
+        const password = document.querySelector('input[name=Password]');
+        const confirm = document.querySelector('input[name=ConfirmPass]');
         if (confirm.value === password.value) {
             confirm.setCustomValidity('');
         } else {
@@ -136,7 +136,7 @@ if (isset($_POST['reset'])) {
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" name="Password" class="form-control" required/>
+                            <input type="password" name="Password" class="form-control" onChange="onChange()" required/>
                             <label class="form-label" for="Password">Password</label>
                         </div>
 
