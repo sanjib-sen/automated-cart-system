@@ -10,11 +10,12 @@ $new = new mysqli($host, $dbUsrname, $dbPassword);
 $loginsucces = true;
 $label = "";
 
-if(file_exists('../database/database.sql')) {
+if (mysqli_select_db( $new,'project')) {
+} else {
     $location = '../database/database.sql';
     run_sql_file($location, $new);
-    unlink($location);
 }
+
 function run_sql_file($location, $conn){
     //load file
     $commands = file_get_contents($location);

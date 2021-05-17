@@ -61,14 +61,20 @@ $bill_query = mysqli_query($conn, $sql_bills);
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        @media print {
+            #printPageButton {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
 
+
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="printPageButton">
     <!-- Container wrapper -->
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <!-- Toggle button -->
         <button
                 class="navbar-toggler"
@@ -179,9 +185,9 @@ $bill_query = mysqli_query($conn, $sql_bills);
                     <br>
                     <br>
                     <div class="col text-center">
-                        <a class="btn btn-primary" href="products.php" role="button">Shop More</a>
+                        <a class="btn btn-primary" href="products.php" role="button" id="printPageButton">Shop More</a>
+                        <button class="btn btn-primary" value="Print" onclick="window.print()" id="printPageButton"> Print Bills</button>
                     </div>
-
 
                     <!-- End your project here-->
                 </div>
