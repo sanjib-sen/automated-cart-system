@@ -15,7 +15,7 @@ There are 2 ways to run this app solution.
 
 ## How to Run:
 ### For Desktop App: (Recommended)
-1. Download [this zip file](https://github.com/sanjib-sen/Project-ShoppingCart/releases/download/0.01/BRACU.Mart.zip).
+1. Download [this zip file](https://github.com/sanjib-sen/Project-ShoppingCart/releases/download/0.02/BRACUMart.zip).
 2. Extract it.
 3. Open **Xampp** start `Apache` and `MySQL` Server.
 4. Open `BRACU Mart.exe`.
