@@ -67,6 +67,7 @@ There are 2 ways to run this app solution.
 * Customer Registration, Login and Logout.
 * Customer Profile Information and Billing History.
 * Customer Reset Password.
+* Print Customer and Billing information.
 
 ## Screenshots
 
