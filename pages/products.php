@@ -79,8 +79,9 @@ if (isset($_POST['delete'])) {
     $fetchpro = $run_query_pro->fetch_assoc();
     $pic = $fetchpro['image'];
     $file = "../uploads/$pic";
-    unlink($file);
-
+    if (file_exists($file)) {
+        unlink($file);
+    }
     $del_sql = "DELETE FROM products where product_id='$product_id'";
     $run_del_query = mysqli_query($conn, $del_sql);
     $label = "The product has been deleted.";
@@ -125,8 +126,9 @@ if (isset($_POST['product'])) {
             $fetchpro = $run_query_pro->fetch_assoc();
             $pic = $fetchpro['image'];
             $file = "../uploads/$pic";
-            unlink($file);
-
+            if (file_exists($file)) {
+                unlink($file);
+            }
             $sql_image_update = "UPDATE products SET image='$filename' WHERE product_id = '$product_id'";
             $run_query_update_image = mysqli_query($conn, $sql_image_update);
         }
