@@ -134,6 +134,10 @@ if (isset($_POST['product'])) {
     }
 }
 
+if (isset($_POST['fromlogin'])) {
+    $label = $_POST['fromlogin'];
+    $action = 'login';
+}
 
 $sql = "SELECT * FROM products";
 $run_query = mysqli_query($conn, $sql);
@@ -226,7 +230,7 @@ $run_query = mysqli_query($conn, $sql);
 
 
                 <!-- Start your project here-->
-                <?php if ($action == 'add' || $action == 'delete' || $action == 'product' || $action == "") { ?>
+                <?php if (!($action == 'update' || $action=='create')) { ?>
                     <div class="col-xl-10">
                         <h1>Products</h1>
                         <?php if ($_SESSION['role'] != 'customer') { ?>
