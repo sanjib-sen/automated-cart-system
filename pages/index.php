@@ -121,7 +121,7 @@ if (isset($_POST['Username'])) {
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <input type="text" name="Username" class="form-control" required/>
-                                <label class="form-label">Username</label>
+                                <label class="form-label">Username </label>
                             </div>
 
                             <!-- Password input -->
