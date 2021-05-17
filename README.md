@@ -12,7 +12,6 @@ There are 2 ways to run this app solution.
 ## Requirements:
 * Windows, but if you are geek enough, you should manage to run this on Linux
 * Download and Install [Xampp](https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe)
-* It is recommended to install xampp in `C:/` Directory
 
 ## How to Run:
 ### For Desktop App: (Recommended)
@@ -27,7 +26,7 @@ There are 2 ways to run this app solution.
 ### For Web App:
 1. Git Clone this Repository or Download the zip file and extract it.
 2. Rename the `Project-ShoppingCart` folder as your wish. For example: `bracu-mart`
-3. Copy the folder to `C:/xampp/htdocs` directory.
+3. Copy the folder to `<xampp installation directory>/htdocs` . e.g. `C:/xampp/htdocs`.
 4. Open **Xampp** start `Apache` and `MySQL` Server.
 5. Now with your browser visit:
    `localhost/<your-folder-name>` e.g. `localhost/bracu-mart`
