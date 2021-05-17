@@ -29,7 +29,6 @@ if (isset($_POST['cusreg'])) {
     if ($count_no > 0) {
         $login = false;
         $regsucces = false;
-//        echo "Already registered using this phone number";
         $label = "Already registered using this phone number";
     } else {
         $sql = "INSERT INTO customer (name,phone_no, password,join_date) VALUES ('$name','$phone','$pass','$date')";
@@ -70,11 +69,7 @@ if (isset($_POST['cuslogin'])) {
         $label = "Login Successful";
 
 
-//        header("Location: products.php");
-
-
     } else {
-//        echo "Incorrect Phone Number Or Passwrord";
         $login = true;
         $loginsucces = false;
         $label = "Incorrect Phone Number Or Passwrord";
