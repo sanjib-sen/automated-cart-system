@@ -120,13 +120,13 @@ if (isset($_POST['Username'])) {
                         <form method="post" action="index.php">
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="text" name="Username" class="form-control"/>
+                                <input type="text" name="Username" class="form-control" required/>
                                 <label class="form-label">Username</label>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <input type="password" name="Password" class="form-control"/>
+                                <input type="password" name="Password" class="form-control" required/>
                                 <label class="form-label">Password</label>
                             </div>
 
