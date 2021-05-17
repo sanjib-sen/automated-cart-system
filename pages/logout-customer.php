@@ -7,6 +7,7 @@ session_destroy();
 session_start();
 $_SESSION['role'] = 'admin';
 $_SESSION['admin-id'] = $admin;
+$_SESSION['label'] = "Logout Successful";
 
 header('Location:index.php');
 exit();

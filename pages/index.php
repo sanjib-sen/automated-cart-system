@@ -103,14 +103,18 @@ if (isset($_POST['Username'])) {
 
 
                     <?php if (isset($_POST['Username']) && !$loginsucces) { ?>
-
                         <div class="alert alert-danger" role="alert">
                             Incorrect Username/Password <br>
                             Contact Administrator!
                         </div>
                     <?php } ?>
 
-                    <?php if (!isset($_SESSION['admin-id']) || (isset($_POST['Username']) && !$loginsucces)) { ?>
+                    <?php if (!isset($_SESSION['admin-id']) || (isset($_POST['Username']) && !$loginsucces)) {
+                        if (isset($_SESSION['label'])) { ?>
+                            <div class="alert alert-success" role="alert"><?php echo $_SESSION['label'] ?></div>
+                        <?php }
+                    ;
+                        unset($_SESSION['label']); ?>
 
                         <h1 class="mb-3 text-center">Admin Login</h1>
                         <form method="post" action="index.php">
@@ -141,7 +145,13 @@ if (isset($_POST['Username'])) {
                         </div>
                     <?php } ?>
 
-                    <?php if (isset($_SESSION['admin-id'])) { ?>
+                    <?php if (isset($_SESSION['admin-id'])) {
+                        if (isset($_SESSION['label'])) { ?>
+                            <div class="alert alert-success" role="alert"><?php echo $_SESSION['label'] ?></div>
+                        <?php }
+                    ;
+                        unset($_SESSION['label']); ?>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="card">
