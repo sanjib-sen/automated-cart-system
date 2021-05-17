@@ -130,7 +130,6 @@ if (isset($_POST['Username'])) {
                                 <label class="form-label">Password</label>
                             </div>
 
-
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
                         </form>

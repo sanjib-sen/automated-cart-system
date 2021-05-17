@@ -230,7 +230,7 @@ $run_query = mysqli_query($conn, $sql);
 
 
                 <!-- Start your project here-->
-                <?php if (!($action == 'update' || $action=='create')) { ?>
+                <?php if (!($action == 'update' || $action == 'create')) { ?>
                     <div class="col-xl-10">
                         <h1>Products</h1>
                         <?php if ($_SESSION['role'] != 'customer') { ?>
