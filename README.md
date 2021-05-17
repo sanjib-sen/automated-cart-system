@@ -9,8 +9,6 @@ There are 2 ways to run this app solution.
 * As a Web-Server (Requiring a Browser)
 * As a Desktop App (An executable file for Windows)
 
-#### In both ways you need to [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database) **before** running the app.
-
 ## Requirements:
 * Windows, but if you are geek enough, you should manage to run this on Linux
 * Download and Install [Xampp](https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe)
@@ -20,7 +18,7 @@ There are 2 ways to run this app solution.
 ### For Desktop App: (Recommended)
 1. Download [this zip file](https://github.com/sanjib-sen/Project-ShoppingCart/releases/download/0.01/BRACU.Mart.zip).
 2. Extract it.
-3. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database)
+3. Open **Xampp** start `Apache` and `MySQL` Server.
 4. Open `BRACU Mart.exe`.
 5. Login with this Admin Credentials:
     * **Username:** `sanjib`
@@ -30,21 +28,12 @@ There are 2 ways to run this app solution.
 1. Git Clone this Repository or Download the zip file and extract it.
 2. Rename the `Project-ShoppingCart` folder as your wish. For example: `bracu-mart`
 3. Copy the folder to `C:/xampp/htdocs` directory.
-4. [Create Database](https://github.com/sanjib-sen/Project-ShoppingCart#create-database)
+4. Open **Xampp** start `Apache` and `MySQL` Server.
 5. Now with your browser visit:
    `localhost/<your-folder-name>` e.g. `localhost/bracu-mart`
 6. Login with this Admin Credentials:
    * **Username:** `sanjib`
    * **Password:** `1234`
-
-## Create Database:
-1. Open **Xampp** start `Apache` and `MySQL` Server.
-2. Visit `localhost/phpmyadmin` with your browser and create a new database named `project` .
-3. Import Database.
-    1. Go to `Import`tab in **PHPMyAdmin**
-    2. Select `Choose File`
-    3. Go to your extracted folder.
-    4. Go to `database` and select `fresh.sql`.
    
 
 ## Features:

@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `added_to`
 --
 
+CREATE DATABASE IF NOT EXISTS project;
+
+USE project;
+
 CREATE TABLE `added_to` (
   `product_id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
